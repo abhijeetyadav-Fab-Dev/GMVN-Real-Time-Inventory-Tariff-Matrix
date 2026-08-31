@@ -15,84 +15,94 @@
       padding: 0 20px 40px 20px;
       min-height: 100vh;
     }
-    .container { max-width: 1480px; margin: 0 auto; }
+
+    .container { max-width: 1540px; margin: 0 auto; }
+
+    /* Sticky Control Header */
     .sticky-header-container {
       position: sticky;
       top: 0;
       z-index: 1000;
       background: #f8fafc;
-      padding-top: 16px;
-      padding-bottom: 14px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      padding-top: 14px;
+      padding-bottom: 12px;
     }
+
+    /* Main Header Bar */
     header {
       background: #0f2942;
       color: #fff;
-      padding: 14px 24px;
+      padding: 12px 20px;
       border-radius: 8px 8px 0 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
     }
     .header-title h1 {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: #f59e0b;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
     .header-title p {
       color: #94a3b8;
-      font-size: 0.8rem;
-      margin-top: 2px;
+      font-size: 0.78rem;
+      margin-top: 1px;
     }
     .btn-excel {
       background: #10b981;
       color: #fff;
       text-decoration: none;
-      padding: 8px 18px;
+      padding: 8px 16px;
       border-radius: 6px;
       font-weight: 600;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       border: none;
       cursor: pointer;
       transition: all 0.2s;
     }
-    .btn-excel:hover { background: #059669; transform: translateY(-1px); }
+    .btn-excel:hover { background: #059669; }
+
+    /* Filter Card */
     .filter-card {
       background: #ffffff;
       border-radius: 0 0 8px 8px;
-      padding: 16px 24px;
+      padding: 14px 20px;
       border: 1px solid #cbd5e1;
       border-top: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
     }
     .filter-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) 130px;
-      gap: 14px;
+      grid-template-columns: 180px 180px 220px 1fr 120px;
+      gap: 12px;
       align-items: flex-end;
+    }
+    @media (max-width: 1024px) {
+      .filter-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
     }
     .input-group label {
       display: block;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 700;
       color: #475569;
-      margin-bottom: 5px;
+      margin-bottom: 4px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
     .input-control {
       width: 100%;
-      padding: 9px 12px;
+      padding: 8px 10px;
       border: 1px solid #cbd5e1;
       border-radius: 6px;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       font-family: inherit;
       outline: none;
       background: #f8fafc;
@@ -107,10 +117,10 @@
       background: #0250a3;
       color: #fff;
       border: none;
-      padding: 9px 16px;
+      padding: 9px 12px;
       border-radius: 6px;
       font-weight: 600;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       cursor: pointer;
       transition: background 0.2s;
       display: flex;
@@ -120,15 +130,17 @@
       width: 100%;
     }
     .btn-search:hover { background: #013d7d; }
+
+    /* Stats Bar */
     .stats-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin: 16px 0 12px 0;
-      font-size: 0.85rem;
+      margin: 12px 0 10px 0;
+      font-size: 0.82rem;
       color: #64748b;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
     }
     .badge-count {
       background: #e2e8f0;
@@ -137,45 +149,53 @@
       border-radius: 4px;
       font-weight: 600;
     }
-    .table-responsive {
+
+    /* Fixed Clean Table Container */
+    .table-container {
       background: #fff;
       border-radius: 8px;
-      border: 1px solid #e2e8f0;
-      overflow-x: auto;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      border: 1px solid #cbd5e1;
+      overflow: auto;
+      max-height: calc(100vh - 215px);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      position: relative;
     }
     table {
       width: 100%;
-      border-collapse: collapse;
+      border-collapse: separate;
+      border-spacing: 0;
       text-align: left;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
     }
-    th {
+    thead th {
       background: #0f2942;
       color: #fff;
       font-weight: 600;
-      padding: 12px 14px;
+      padding: 10px 12px;
+      border-bottom: 2px solid #0250a3;
       border-right: 1px solid #1e3a5f;
       white-space: nowrap;
       position: sticky;
-      top: 155px;
-      z-index: 10;
+      top: 0;
+      z-index: 50;
     }
-    th.date-header {
-      background: #1e3a5f;
+    thead th.date-header {
+      background: #162e4a;
       color: #f59e0b;
       text-align: center;
-      min-width: 90px;
+      min-width: 95px;
     }
     td {
-      padding: 10px 14px;
+      padding: 8px 12px;
       border-bottom: 1px solid #f1f5f9;
       border-right: 1px solid #f1f5f9;
       vertical-align: middle;
+      background: #fff;
     }
     tr:hover td {
       background: #f8fafc;
     }
+    
     .prop-name {
       font-weight: 600;
       color: #0250a3;
@@ -191,9 +211,9 @@
       white-space: nowrap;
     }
     .district-tag {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 600;
-      padding: 3px 6px;
+      padding: 2px 6px;
       border-radius: 4px;
       background: #e0f2fe;
       color: #0369a1;
@@ -202,8 +222,8 @@
     .avail-box {
       text-align: center;
       font-weight: 600;
-      font-size: 0.8rem;
-      padding: 4px 8px;
+      font-size: 0.76rem;
+      padding: 3px 6px;
       border-radius: 4px;
       white-space: nowrap;
     }
@@ -217,6 +237,7 @@
       color: #dc2626;
       border: 1px solid #fecaca;
     }
+
     .loading {
       padding: 60px;
       text-align: center;
@@ -226,6 +247,7 @@
 </head>
 <body>
   <div class="container">
+    <!-- Constant Sticky Header -->
     <div class="sticky-header-container">
       <header>
         <div class="header-title">
@@ -279,6 +301,7 @@
       </div>
     </div>
 
+    <!-- Stats Bar -->
     <div class="stats-bar">
       <div>
         Showing <span class="badge-count" id="prop-count">0</span> Properties across Garhwal Mandal
@@ -288,7 +311,8 @@
       </div>
     </div>
 
-    <div class="table-responsive">
+    <!-- Matrix Table Container with Internal Scroll -->
+    <div class="table-container">
       <table id="matrix-table">
         <thead>
           <tr id="table-header-row">
@@ -299,6 +323,7 @@
             <th>Tariff (INR)</th>
             <th>Meal Plan</th>
             <th>Contact</th>
+            <!-- Dynamic Date Headers -->
           </tr>
         </thead>
         <tbody id="table-body">
@@ -334,6 +359,7 @@
     function renderTable(dates, properties) {
       document.getElementById('prop-count').innerText = properties.length;
 
+      // Build Header
       const headerRow = document.getElementById('table-header-row');
       headerRow.innerHTML = `
         <th>District</th>
@@ -347,9 +373,10 @@
         const dateObj = new Date(d);
         const formatted = dateObj.toLocaleDateString('en-GB', { day: '2-digit', month: 'short' });
         const weekday = dateObj.toLocaleDateString('en-GB', { weekday: 'short' });
-        return `<th class="date-header">${formatted}<br><span style="font-size: 0.72rem; font-weight: normal; color: #cbd5e1;">${weekday}</span></th>`;
+        return `<th class="date-header">${formatted}<br><span style="font-size: 0.7rem; font-weight: normal; color: #cbd5e1;">${weekday}</span></th>`;
       }).join('');
 
+      // Build Body
       const tbody = document.getElementById('table-body');
       if (properties.length === 0) {
         tbody.innerHTML = `<tr><td colspan="${7 + dates.length}" style="text-align: center; padding: 40px; color: #64748b;">No matching GMVN properties found.</td></tr>`;
@@ -366,8 +393,8 @@
               <td class="prop-name">${p.property_name}</td>
               <td class="room-name">${r.name}</td>
               <td class="tariff-val">₹ ${r.tariff.toLocaleString()}</td>
-              <td style="color: #64748b; font-size: 0.8rem;">${r.plan}</td>
-              <td style="color: #64748b; font-size: 0.8rem; font-family: monospace;">${r.contact}</td>
+              <td style="color: #64748b; font-size: 0.78rem;">${r.plan}</td>
+              <td style="color: #64748b; font-size: 0.78rem; font-family: monospace;">${r.contact}</td>
               ${dates.map(d => {
                 const count = r.daily_inventory[d] || 0;
                 if (count > 0) {
