@@ -1,0 +1,3807 @@
+{
+  "total_properties": 61,
+  "districts": [
+    "Chamoli",
+    "Dehradun",
+    "Haridwar",
+    "Pauri Garhwal",
+    "Tehri Garhwal",
+    "Rudraprayag",
+    "Uttarkashi"
+  ],
+  "properties": [
+    {
+      "trh_id": "68",
+      "name": "Auli Ski Resort",
+      "district": "Chamoli",
+      "city": "Auli",
+      "overview": "Situated in picturesque Auli, district Chamoli, Auli Ski Resort offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "70",
+      "name": "Auli Cloud End",
+      "district": "Chamoli",
+      "city": "Auli",
+      "overview": "Situated in picturesque Auli, district Chamoli, Auli Cloud End offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "2",
+      "name": "Adi Badri (near Karnprayag)",
+      "district": "Chamoli",
+      "city": "Adi Badri",
+      "overview": "Situated in picturesque Adi Badri, district Chamoli, Adi Badri (near Karnprayag) offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "3",
+      "name": "Badrinath Devlok",
+      "district": "Chamoli",
+      "city": "Badrinath",
+      "overview": "Situated in picturesque Badrinath, district Chamoli, Badrinath Devlok offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Deluxe Room (Valley View)",
+          "tariff": 4500,
+          "tax_incl": true,
+          "available": 5,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Chamoli/Badrinath/badri-deluxe.jpg",
+          "amenities": [
+            "Room Heater",
+            "Geyser",
+            "Hot Water",
+            "Tea Kettle",
+            "Attached Bath",
+            "Parking"
+          ]
+        },
+        {
+          "name": "Standard Room",
+          "tariff": 3000,
+          "tax_incl": true,
+          "available": 12,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Chamoli/Badrinath/badri-std.jpg",
+          "amenities": [
+            "Geyser",
+            "Attached Bath",
+            "Blankets",
+            "Dining Hall Access"
+          ]
+        },
+        {
+          "name": "Dormitory Bed",
+          "tariff": 750,
+          "tax_incl": true,
+          "available": 30,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Chamoli/Badrinath/badri-dorm.jpg",
+          "amenities": [
+            "Clean Bedding",
+            "Hot Water Facility",
+            "Shared Washrooms"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "4",
+      "name": "Badrinath Yatri Niwas",
+      "district": "Chamoli",
+      "city": "Badrinath",
+      "overview": "Situated in picturesque Badrinath, district Chamoli, Badrinath Yatri Niwas offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Deluxe Room (Valley View)",
+          "tariff": 4500,
+          "tax_incl": true,
+          "available": 5,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Chamoli/Badrinath/badri-deluxe.jpg",
+          "amenities": [
+            "Room Heater",
+            "Geyser",
+            "Hot Water",
+            "Tea Kettle",
+            "Attached Bath",
+            "Parking"
+          ]
+        },
+        {
+          "name": "Standard Room",
+          "tariff": 3000,
+          "tax_incl": true,
+          "available": 12,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Chamoli/Badrinath/badri-std.jpg",
+          "amenities": [
+            "Geyser",
+            "Attached Bath",
+            "Blankets",
+            "Dining Hall Access"
+          ]
+        },
+        {
+          "name": "Dormitory Bed",
+          "tariff": 750,
+          "tax_incl": true,
+          "available": 30,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Chamoli/Badrinath/badri-dorm.jpg",
+          "amenities": [
+            "Clean Bedding",
+            "Hot Water Facility",
+            "Shared Washrooms"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "5",
+      "name": "Ghangaria Tourist Complex",
+      "district": "Chamoli",
+      "city": "Ghangaria",
+      "overview": "Situated in picturesque Ghangaria, district Chamoli, Ghangaria Tourist Complex offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "6",
+      "name": "Gopeshwar Tourist Rest House",
+      "district": "Chamoli",
+      "city": "Gopeshwar",
+      "overview": "Situated in picturesque Gopeshwar, district Chamoli, Gopeshwar Tourist Rest House offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "7",
+      "name": "Joshimath Main TRH",
+      "district": "Chamoli",
+      "city": "Joshimath",
+      "overview": "Situated in picturesque Joshimath, district Chamoli, Joshimath Main TRH offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "8",
+      "name": "Joshimath Nanda Devi TRH",
+      "district": "Chamoli",
+      "city": "Joshimath",
+      "overview": "Situated in picturesque Joshimath, district Chamoli, Joshimath Nanda Devi TRH offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "9",
+      "name": "Karanprayag TRH",
+      "district": "Chamoli",
+      "city": "Karanprayag",
+      "overview": "Situated in picturesque Karanprayag, district Chamoli, Karanprayag TRH offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "11",
+      "name": "Pandukeshwar TRH",
+      "district": "Chamoli",
+      "city": "Pandukeshwar",
+      "overview": "Situated in picturesque Pandukeshwar, district Chamoli, Pandukeshwar TRH offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "12",
+      "name": "Pipalkoti Tourist Rest House",
+      "district": "Chamoli",
+      "city": "Pipalkoti",
+      "overview": "Situated in picturesque Pipalkoti, district Chamoli, Pipalkoti Tourist Rest House offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "13",
+      "name": "Wan Eco Camp",
+      "district": "Chamoli",
+      "city": "Wan",
+      "overview": "Situated in picturesque Wan, district Chamoli, Wan Eco Camp offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "14",
+      "name": "Gwaldam Tourist Rest House",
+      "district": "Chamoli",
+      "city": "Gwaldam",
+      "overview": "Situated in picturesque Gwaldam, district Chamoli, Gwaldam Tourist Rest House offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "1",
+      "name": "Asan Conservation Resort",
+      "district": "Dehradun",
+      "city": "Asan Barrage",
+      "overview": "Situated in picturesque Asan Barrage, district Dehradun, Asan Conservation Resort offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2746817",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2746817",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2746817",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "15",
+      "name": "Chakrata Tourist Rest House",
+      "district": "Dehradun",
+      "city": "Chakrata",
+      "overview": "Situated in picturesque Chakrata, district Dehradun, Chakrata Tourist Rest House offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2746817",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2746817",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2746817",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "16",
+      "name": "Dakpathar Resort",
+      "district": "Dehradun",
+      "city": "Dakpathar",
+      "overview": "Situated in picturesque Dakpathar, district Dehradun, Dakpathar Resort offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2746817",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2746817",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2746817",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "17",
+      "name": "Drona Hotel, Dehradun",
+      "district": "Dehradun",
+      "city": "Dehradun",
+      "overview": "Situated in picturesque Dehradun, district Dehradun, Drona Hotel, Dehradun offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2746817",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2746817",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2746817",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "18",
+      "name": "Garhwal Terrace, Mussoorie",
+      "district": "Dehradun",
+      "city": "Mussoorie",
+      "overview": "Situated in picturesque Mussoorie, district Dehradun, Garhwal Terrace, Mussoorie offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2746817",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2746817",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2746817",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "19",
+      "name": "George Everest Nature Camp",
+      "district": "Dehradun",
+      "city": "Mussoorie",
+      "overview": "Situated in picturesque Mussoorie, district Dehradun, George Everest Nature Camp offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2746817",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2746817",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2746817",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "20",
+      "name": "Ganga Resort, Rishikesh",
+      "district": "Dehradun",
+      "city": "Rishikesh",
+      "overview": "Situated in picturesque Rishikesh, district Dehradun, Ganga Resort, Rishikesh offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2746817",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2746817",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2746817",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "21",
+      "name": "Rishilok Tourist Complex, Muni-Ki-Reti",
+      "district": "Dehradun",
+      "city": "Rishikesh",
+      "overview": "Situated in picturesque Rishikesh, district Dehradun, Rishilok Tourist Complex, Muni-Ki-Reti offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2746817",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2746817",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2746817",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "22",
+      "name": "Bharat Bhoomi Tourist Complex, Rishikesh",
+      "district": "Dehradun",
+      "city": "Rishikesh",
+      "overview": "Situated in picturesque Rishikesh, district Dehradun, Bharat Bhoomi Tourist Complex, Rishikesh offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2746817",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2746817",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2746817",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "85",
+      "name": "Hotel Alaknanda, Haridwar",
+      "district": "Haridwar",
+      "city": "Haridwar",
+      "overview": "If you're looking for a hotel in Haridwar, look no further than Hotel Alaknanda. The city is situated on the right bank of the Ganges river, at the foothills of the Shivalik ranges. Haridwar is regarded as a holy place for Hindus, hosting important religious events and serving as a gateway to several prominent places of worship.",
+      "rooms": [
+        {
+          "name": "AC Deluxe Room",
+          "tariff": 5400,
+          "tax_incl": true,
+          "available": 2,
+          "contact": "9012453541",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Haridwar/Haridwar/alaknanda-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "CP Plan (Bed Tea & Breakfast) for 2 Person",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Intercome",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "AC Executive Room",
+          "tariff": 4800,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "9012453541",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Haridwar/Haridwar/alaknanda-room2.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Intercome",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "AC Ordinary Room",
+          "tariff": 3800,
+          "tax_incl": true,
+          "available": 10,
+          "contact": "9012453541",
+          "capacity": 2,
+          "plan": "EP Plan (Room Only)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Haridwar/Haridwar/alaknanda-room3.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Suite Room",
+          "tariff": 7500,
+          "tax_incl": true,
+          "available": 2,
+          "contact": "9012453541",
+          "capacity": 4,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Haridwar/Haridwar/alaknanda-suite.jpg",
+          "amenities": [
+            "A.C.",
+            "Living Area",
+            "CP Plan (Breakfast)",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Intercome",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "72",
+      "name": "Chilla Resort, Rajaji National Park",
+      "district": "Haridwar",
+      "city": "Chilla / Haridwar",
+      "overview": "Situated in picturesque Chilla / Haridwar, district Haridwar, Chilla Resort, Rajaji National Park offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "9012453541",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "9012453541",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "9012453541",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "23",
+      "name": "Rahi Motel, Haridwar",
+      "district": "Haridwar",
+      "city": "Haridwar",
+      "overview": "Situated in picturesque Haridwar, district Haridwar, Rahi Motel, Haridwar offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "AC Deluxe Room",
+          "tariff": 5400,
+          "tax_incl": true,
+          "available": 2,
+          "contact": "9012453541",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Haridwar/Haridwar/alaknanda-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "CP Plan (Bed Tea & Breakfast) for 2 Person",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Intercome",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "AC Executive Room",
+          "tariff": 4800,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "9012453541",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Haridwar/Haridwar/alaknanda-room2.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Intercome",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "AC Ordinary Room",
+          "tariff": 3800,
+          "tax_incl": true,
+          "available": 10,
+          "contact": "9012453541",
+          "capacity": 2,
+          "plan": "EP Plan (Room Only)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Haridwar/Haridwar/alaknanda-room3.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Suite Room",
+          "tariff": 7500,
+          "tax_incl": true,
+          "available": 2,
+          "contact": "9012453541",
+          "capacity": 4,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Haridwar/Haridwar/alaknanda-suite.jpg",
+          "amenities": [
+            "A.C.",
+            "Living Area",
+            "CP Plan (Breakfast)",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Intercome",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "24",
+      "name": "Haridwar Tourist Rest House",
+      "district": "Haridwar",
+      "city": "Haridwar",
+      "overview": "Situated in picturesque Haridwar, district Haridwar, Haridwar Tourist Rest House offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "AC Deluxe Room",
+          "tariff": 5400,
+          "tax_incl": true,
+          "available": 2,
+          "contact": "9012453541",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Haridwar/Haridwar/alaknanda-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "CP Plan (Bed Tea & Breakfast) for 2 Person",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Intercome",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "AC Executive Room",
+          "tariff": 4800,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "9012453541",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Haridwar/Haridwar/alaknanda-room2.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Intercome",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "AC Ordinary Room",
+          "tariff": 3800,
+          "tax_incl": true,
+          "available": 10,
+          "contact": "9012453541",
+          "capacity": 2,
+          "plan": "EP Plan (Room Only)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Haridwar/Haridwar/alaknanda-room3.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Suite Room",
+          "tariff": 7500,
+          "tax_incl": true,
+          "available": 2,
+          "contact": "9012453541",
+          "capacity": 4,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Haridwar/Haridwar/alaknanda-suite.jpg",
+          "amenities": [
+            "A.C.",
+            "Living Area",
+            "CP Plan (Breakfast)",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Intercome",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "25",
+      "name": "Hotel Rahat, Pauri",
+      "district": "Pauri Garhwal",
+      "city": "Pauri",
+      "overview": "Situated in picturesque Pauri, district Pauri Garhwal, Hotel Rahat, Pauri offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "26",
+      "name": "Khirsu Tourist Rest House",
+      "district": "Pauri Garhwal",
+      "city": "Khirsu",
+      "overview": "Situated in picturesque Khirsu, district Pauri Garhwal, Khirsu Tourist Rest House offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "27",
+      "name": "Tip N Top Resort, Lansdowne",
+      "district": "Pauri Garhwal",
+      "city": "Lansdowne",
+      "overview": "Situated in picturesque Lansdowne, district Pauri Garhwal, Tip N Top Resort, Lansdowne offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "28",
+      "name": "Srinagar Tourist Rest House",
+      "district": "Pauri Garhwal",
+      "city": "Srinagar Garhwal",
+      "overview": "Situated in picturesque Srinagar Garhwal, district Pauri Garhwal, Srinagar Tourist Rest House offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "29",
+      "name": "Sukhatal Forest Camp",
+      "district": "Pauri Garhwal",
+      "city": "Pauri",
+      "overview": "Situated in picturesque Pauri, district Pauri Garhwal, Sukhatal Forest Camp offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "30",
+      "name": "Thalisain Rest House",
+      "district": "Pauri Garhwal",
+      "city": "Thalisain",
+      "overview": "Situated in picturesque Thalisain, district Pauri Garhwal, Thalisain Rest House offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "47",
+      "name": "Asnolgarh Forest Lodge",
+      "district": "Pauri Garhwal",
+      "city": "Asnolgarh",
+      "overview": "Situated in picturesque Asnolgarh, district Pauri Garhwal, Asnolgarh Forest Lodge offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "10",
+      "name": "Hotel Dhanaulti Heights, Dhanaulti",
+      "district": "Tehri Garhwal",
+      "city": "Dhanaulti",
+      "overview": "Situated in picturesque Dhanaulti, district Tehri Garhwal, Hotel Dhanaulti Heights, Dhanaulti offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "71",
+      "name": "GMVN Chamba Tourist Rest House",
+      "district": "Tehri Garhwal",
+      "city": "Chamba",
+      "overview": "Situated in picturesque Chamba, district Tehri Garhwal, GMVN Chamba Tourist Rest House offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "31",
+      "name": "Devprayag Tourist Rest House",
+      "district": "Tehri Garhwal",
+      "city": "Devprayag",
+      "overview": "Situated in picturesque Devprayag, district Tehri Garhwal, Devprayag Tourist Rest House offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "32",
+      "name": "Kaudiyala Rafting Camp",
+      "district": "Tehri Garhwal",
+      "city": "Kaudiyala",
+      "overview": "Situated in picturesque Kaudiyala, district Tehri Garhwal, Kaudiyala Rafting Camp offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "33",
+      "name": "New Tehri Tourist Rest House",
+      "district": "Tehri Garhwal",
+      "city": "New Tehri",
+      "overview": "Situated in picturesque New Tehri, district Tehri Garhwal, New Tehri Tourist Rest House offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "34",
+      "name": "Kanatal Eco Cottages",
+      "district": "Tehri Garhwal",
+      "city": "Kanatal",
+      "overview": "Situated in picturesque Kanatal, district Tehri Garhwal, Kanatal Eco Cottages offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "35",
+      "name": "Ghansali Tourist Rest House",
+      "district": "Tehri Garhwal",
+      "city": "Ghansali",
+      "overview": "Situated in picturesque Ghansali, district Tehri Garhwal, Ghansali Tourist Rest House offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "36",
+      "name": "Kedarnath Swargarohini Complex",
+      "district": "Rudraprayag",
+      "city": "Kedarnath",
+      "overview": "Situated in picturesque Kedarnath, district Rudraprayag, Kedarnath Swargarohini Complex offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Hut / Family Room",
+          "tariff": 6500,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 4,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Rudraprayag/Kedarnath/kedar-hut.jpg",
+          "amenities": [
+            "Heavy Thermal Quilts",
+            "Attached Bath",
+            "Hot Water Bucket (Chargeable)",
+            "Power Backup",
+            "Emergency Oxygen"
+          ]
+        },
+        {
+          "name": "Standard Deluxe Room (Twin Sharing)",
+          "tariff": 3500,
+          "tax_incl": true,
+          "available": 8,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Rudraprayag/Kedarnath/kedar-room.jpg",
+          "amenities": [
+            "Thermal Blankets",
+            "Attached Bath",
+            "Hot Water Bucket",
+            "Solar Lights"
+          ]
+        },
+        {
+          "name": "Bunk Bedded Dormitory (Per Bed)",
+          "tariff": 950,
+          "tax_incl": true,
+          "available": 25,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Rudraprayag/Kedarnath/kedar-dorm.jpg",
+          "amenities": [
+            "Clean Bedding",
+            "Mattress & Blanket",
+            "Shared Clean Toilet",
+            "Common Dining Area"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "37",
+      "name": "Kedarnath Nandi Complex Base Camp",
+      "district": "Rudraprayag",
+      "city": "Kedarnath",
+      "overview": "Situated in picturesque Kedarnath, district Rudraprayag, Kedarnath Nandi Complex Base Camp offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Hut / Family Room",
+          "tariff": 6500,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 4,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Rudraprayag/Kedarnath/kedar-hut.jpg",
+          "amenities": [
+            "Heavy Thermal Quilts",
+            "Attached Bath",
+            "Hot Water Bucket (Chargeable)",
+            "Power Backup",
+            "Emergency Oxygen"
+          ]
+        },
+        {
+          "name": "Standard Deluxe Room (Twin Sharing)",
+          "tariff": 3500,
+          "tax_incl": true,
+          "available": 8,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Rudraprayag/Kedarnath/kedar-room.jpg",
+          "amenities": [
+            "Thermal Blankets",
+            "Attached Bath",
+            "Hot Water Bucket",
+            "Solar Lights"
+          ]
+        },
+        {
+          "name": "Bunk Bedded Dormitory (Per Bed)",
+          "tariff": 950,
+          "tax_incl": true,
+          "available": 25,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Rudraprayag/Kedarnath/kedar-dorm.jpg",
+          "amenities": [
+            "Clean Bedding",
+            "Mattress & Blanket",
+            "Shared Clean Toilet",
+            "Common Dining Area"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "38",
+      "name": "Kedarnath Himlok Tent Colony",
+      "district": "Rudraprayag",
+      "city": "Kedarnath",
+      "overview": "Situated in picturesque Kedarnath, district Rudraprayag, Kedarnath Himlok Tent Colony offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Hut / Family Room",
+          "tariff": 6500,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 4,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Rudraprayag/Kedarnath/kedar-hut.jpg",
+          "amenities": [
+            "Heavy Thermal Quilts",
+            "Attached Bath",
+            "Hot Water Bucket (Chargeable)",
+            "Power Backup",
+            "Emergency Oxygen"
+          ]
+        },
+        {
+          "name": "Standard Deluxe Room (Twin Sharing)",
+          "tariff": 3500,
+          "tax_incl": true,
+          "available": 8,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Rudraprayag/Kedarnath/kedar-room.jpg",
+          "amenities": [
+            "Thermal Blankets",
+            "Attached Bath",
+            "Hot Water Bucket",
+            "Solar Lights"
+          ]
+        },
+        {
+          "name": "Bunk Bedded Dormitory (Per Bed)",
+          "tariff": 950,
+          "tax_incl": true,
+          "available": 25,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Rudraprayag/Kedarnath/kedar-dorm.jpg",
+          "amenities": [
+            "Clean Bedding",
+            "Mattress & Blanket",
+            "Shared Clean Toilet",
+            "Common Dining Area"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "39",
+      "name": "Guptkashi Tourist Rest House",
+      "district": "Rudraprayag",
+      "city": "Guptkashi",
+      "overview": "Situated in picturesque Guptkashi, district Rudraprayag, Guptkashi Tourist Rest House offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "40",
+      "name": "Rudraprayag Tourist Rest House",
+      "district": "Rudraprayag",
+      "city": "Rudraprayag",
+      "overview": "Situated in picturesque Rudraprayag, district Rudraprayag, Rudraprayag Tourist Rest House offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "41",
+      "name": "Syalsaur River Resort",
+      "district": "Rudraprayag",
+      "city": "Syalsaur",
+      "overview": "Situated in picturesque Syalsaur, district Rudraprayag, Syalsaur River Resort offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "42",
+      "name": "Tilwara Mandakini Resort",
+      "district": "Rudraprayag",
+      "city": "Tilwara",
+      "overview": "Situated in picturesque Tilwara, district Rudraprayag, Tilwara Mandakini Resort offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "43",
+      "name": "Ukhimath Tourist Rest House",
+      "district": "Rudraprayag",
+      "city": "Ukhimath",
+      "overview": "Situated in picturesque Ukhimath, district Rudraprayag, Ukhimath Tourist Rest House offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "44",
+      "name": "Chopta Tourist Rest House",
+      "district": "Rudraprayag",
+      "city": "Chopta",
+      "overview": "Situated in picturesque Chopta, district Rudraprayag, Chopta Tourist Rest House offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "45",
+      "name": "Gaurikund Tourist Rest House",
+      "district": "Rudraprayag",
+      "city": "Gaurikund",
+      "overview": "Situated in picturesque Gaurikund, district Rudraprayag, Gaurikund Tourist Rest House offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "96",
+      "name": "GMVN Bhaironghati, Near Gartang Gali, Harsil",
+      "district": "Uttarkashi",
+      "city": "Bhaironghati",
+      "overview": "Situated in picturesque Bhaironghati, district Uttarkashi, GMVN Bhaironghati, Near Gartang Gali, Harsil offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "46",
+      "name": "Barkot Tourist Rest House",
+      "district": "Uttarkashi",
+      "city": "Barkot",
+      "overview": "Situated in picturesque Barkot, district Uttarkashi, Barkot Tourist Rest House offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "48",
+      "name": "Gangotri Tourist Rest House",
+      "district": "Uttarkashi",
+      "city": "Gangotri",
+      "overview": "Situated in picturesque Gangotri, district Uttarkashi, Gangotri Tourist Rest House offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "49",
+      "name": "Harsil Tourist Rest House",
+      "district": "Uttarkashi",
+      "city": "Harsil",
+      "overview": "Situated in picturesque Harsil, district Uttarkashi, Harsil Tourist Rest House offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "50",
+      "name": "Jankichatti Tourist Rest House",
+      "district": "Uttarkashi",
+      "city": "Jankichatti",
+      "overview": "Situated in picturesque Jankichatti, district Uttarkashi, Jankichatti Tourist Rest House offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "51",
+      "name": "Mori Tourist Complex",
+      "district": "Uttarkashi",
+      "city": "Mori",
+      "overview": "Situated in picturesque Mori, district Uttarkashi, Mori Tourist Complex offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "52",
+      "name": "Netwar Eco Camp",
+      "district": "Uttarkashi",
+      "city": "Netwar",
+      "overview": "Situated in picturesque Netwar, district Uttarkashi, Netwar Eco Camp offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "53",
+      "name": "Purola Tourist Rest House",
+      "district": "Uttarkashi",
+      "city": "Purola",
+      "overview": "Situated in picturesque Purola, district Uttarkashi, Purola Tourist Rest House offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "54",
+      "name": "Sayanachatti Tourist Rest House",
+      "district": "Uttarkashi",
+      "city": "Sayanachatti",
+      "overview": "Situated in picturesque Sayanachatti, district Uttarkashi, Sayanachatti Tourist Rest House offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    },
+    {
+      "trh_id": "55",
+      "name": "Uttarkashi Tourist Rest House",
+      "district": "Uttarkashi",
+      "city": "Uttarkashi",
+      "overview": "Situated in picturesque Uttarkashi, district Uttarkashi, Uttarkashi Tourist Rest House offers comfortable, hygienic rest house accommodation operated directly by Garhwal Mandal Vikas Nigam Ltd. (GMVN). Perfect gateway for pilgrims and tourists visiting holy shrines, adventure treks, and Himalayan circuits.",
+      "rooms": [
+        {
+          "name": "Super Deluxe Room",
+          "tariff": 4200,
+          "tax_incl": true,
+          "available": 4,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room1.jpg",
+          "amenities": [
+            "A.C.",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "Deluxe Room",
+          "tariff": 3200,
+          "tax_incl": true,
+          "available": 6,
+          "contact": "0135-2430373",
+          "capacity": 2,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-resort-room2.jpg",
+          "amenities": [
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "Economy Room / Dormitory Bed",
+          "tariff": 650,
+          "tax_incl": true,
+          "available": 15,
+          "contact": "0135-2430373",
+          "capacity": 1,
+          "plan": "EP Plan",
+          "image": "https://gmvnonline.com/uploads/images/destinations/Dehradun/Rishikesh/ganga-dorm.jpg",
+          "amenities": [
+            "Clean Linen",
+            "Shared Bath",
+            "Hot Water Facility",
+            "Parking"
+          ]
+        }
+      ]
+    }
+  ]
+}

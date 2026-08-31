@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GMVN Availability & Rate Checker</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      padding: 0 20px 40px 20px;
+      min-height: 100vh;
+    }
+    .container { max-width: 1480px; margin: 0 auto; }
+    .sticky-header-container {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #f8fafc;
+      padding-top: 16px;
+      padding-bottom: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    header {
+      background: #0f2942;
+      color: #fff;
+      padding: 14px 24px;
+      border-radius: 8px 8px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .header-title h1 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #f59e0b;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .header-title p {
+      color: #94a3b8;
+      font-size: 0.8rem;
+      margin-top: 2px;
+    }
+    .btn-excel {
+      background: #10b981;
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-excel:hover { background: #059669; transform: translateY(-1px); }
+    .filter-card {
+      background: #ffffff;
+      border-radius: 0 0 8px 8px;
+      padding: 16px 24px;
+      border: 1px solid #cbd5e1;
+      border-top: none;
+    }
+    .filter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) 130px;
+      gap: 14px;
+      align-items: flex-end;
+    }
+    .input-group label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #475569;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .input-control {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-family: inherit;
+      outline: none;
+      background: #f8fafc;
+      transition: all 0.2s;
+    }
+    .input-control:focus {
+      border-color: #0250a3;
+      background: #fff;
+      box-shadow: 0 0 0 2px rgba(2, 80, 163, 0.12);
+    }
+    .btn-search {
+      background: #0250a3;
+      color: #fff;
+      border: none;
+      padding: 9px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+    }
+    .btn-search:hover { background: #013d7d; }
+    .stats-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 16px 0 12px 0;
+      font-size: 0.85rem;
+      color: #64748b;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .badge-count {
+      background: #e2e8f0;
+      color: #0f172a;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .table-responsive {
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      overflow-x: auto;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.85rem;
+    }
+    th {
+      background: #0f2942;
+      color: #fff;
+      font-weight: 600;
+      padding: 12px 14px;
+      border-right: 1px solid #1e3a5f;
+      white-space: nowrap;
+      position: sticky;
+      top: 155px;
+      z-index: 10;
+    }
+    th.date-header {
+      background: #1e3a5f;
+      color: #f59e0b;
+      text-align: center;
+      min-width: 90px;
+    }
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #f1f5f9;
+      border-right: 1px solid #f1f5f9;
+      vertical-align: middle;
+    }
+    tr:hover td {
+      background: #f8fafc;
+    }
+    .prop-name {
+      font-weight: 600;
+      color: #0250a3;
+    }
+    .room-name {
+      font-weight: 500;
+      color: #1e293b;
+    }
+    .tariff-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      color: #0f172a;
+      white-space: nowrap;
+    }
+    .district-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 3px 6px;
+      border-radius: 4px;
+      background: #e0f2fe;
+      color: #0369a1;
+      display: inline-block;
+    }
+    .avail-box {
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.8rem;
+      padding: 4px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .avail-open {
+      background: #ecfdf5;
+      color: #059669;
+      border: 1px solid #a7f3d0;
+    }
+    .avail-sold {
+      background: #fef2f2;
+      color: #dc2626;
+      border: 1px solid #fecaca;
+    }
+    .loading {
+      padding: 60px;
+      text-align: center;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sticky-header-container">
+      <header>
+        <div class="header-title">
+          <h1><i class="fa fa-calendar-check-o"></i> GMVN Real-Time Inventory & Tariff Matrix</h1>
+          <p>Direct live availability grid: District &gt;&gt; Property &gt;&gt; Room Category &gt;&gt; Tariff &gt;&gt; Date-Wise Availability</p>
+        </div>
+        <div>
+          <button class="btn-excel" onclick="downloadExcel()">
+            <i class="fa fa-file-excel-o"></i> Download Excel (.xlsx)
+          </button>
+        </div>
+      </header>
+
+      <div class="filter-card">
+        <div class="filter-grid">
+          <div class="input-group">
+            <label><i class="fa fa-calendar"></i> Arrival Date</label>
+            <input type="date" id="checkin-date" class="input-control" value="2026-09-25" onchange="fetchMatrix()">
+          </div>
+
+          <div class="input-group">
+            <label><i class="fa fa-calendar"></i> Departure Date</label>
+            <input type="date" id="checkout-date" class="input-control" value="2026-09-30" onchange="fetchMatrix()">
+          </div>
+
+          <div class="input-group">
+            <label><i class="fa fa-map"></i> District</label>
+            <select id="district-select" class="input-control" onchange="fetchMatrix()">
+              <option value="all">All Districts (Garhwal)</option>
+              <option value="Chamoli">Chamoli</option>
+              <option value="Dehradun">Dehradun</option>
+              <option value="Haridwar">Haridwar</option>
+              <option value="Pauri Garhwal">Pauri Garhwal</option>
+              <option value="Tehri Garhwal">Tehri Garhwal</option>
+              <option value="Rudraprayag">Rudraprayag</option>
+              <option value="Uttarkashi">Uttarkashi</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label><i class="fa fa-search"></i> Search by City / TRH Name</label>
+            <input type="text" id="city-search" class="input-control" placeholder="e.g. Kedarnath, Haridwar, Auli, Harsil..." oninput="onSearchInput()">
+          </div>
+
+          <div>
+            <button class="btn-search" onclick="fetchMatrix()">
+              <i class="fa fa-refresh"></i> Refresh
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-bar">
+      <div>
+        Showing <span class="badge-count" id="prop-count">0</span> Properties across Garhwal Mandal
+      </div>
+      <div>
+        Date Range: <strong id="date-range-label" style="color: #0250a3;">2026-09-25 to 2026-09-30</strong>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table id="matrix-table">
+        <thead>
+          <tr id="table-header-row">
+            <th>District</th>
+            <th>City / Area</th>
+            <th>Property Name</th>
+            <th>Room Category</th>
+            <th>Tariff (INR)</th>
+            <th>Meal Plan</th>
+            <th>Contact</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <tr>
+            <td colspan="10" class="loading">
+              <i class="fa fa-spinner fa-spin fa-2x"></i>
+              <p style="margin-top: 10px;">Loading live availability and tariff matrix...</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    let searchTimeout = null;
+
+    async function fetchMatrix() {
+      const district = document.getElementById('district-select').value;
+      const search = document.getElementById('city-search').value;
+      const checkin = document.getElementById('checkin-date').value;
+      const checkout = document.getElementById('checkout-date').value;
+
+      document.getElementById('date-range-label').innerText = `${checkin} to ${checkout}`;
+
+      const url = `/api/inventory-matrix?district=${encodeURIComponent(district)}&city_search=${encodeURIComponent(search)}&checkin=${checkin}&checkout=${checkout}`;
+      const res = await fetch(url);
+      const data = await res.json();
+
+      renderTable(data.dates, data.properties);
+    }
+
+    function renderTable(dates, properties) {
+      document.getElementById('prop-count').innerText = properties.length;
+
+      const headerRow = document.getElementById('table-header-row');
+      headerRow.innerHTML = `
+        <th>District</th>
+        <th>City / Area</th>
+        <th>Property Name</th>
+        <th>Room Category</th>
+        <th>Tariff (INR)</th>
+        <th>Meal Plan</th>
+        <th>Contact</th>
+      ` + dates.map(d => {
+        const dateObj = new Date(d);
+        const formatted = dateObj.toLocaleDateString('en-GB', { day: '2-digit', month: 'short' });
+        const weekday = dateObj.toLocaleDateString('en-GB', { weekday: 'short' });
+        return `<th class="date-header">${formatted}<br><span style="font-size: 0.72rem; font-weight: normal; color: #cbd5e1;">${weekday}</span></th>`;
+      }).join('');
+
+      const tbody = document.getElementById('table-body');
+      if (properties.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="${7 + dates.length}" style="text-align: center; padding: 40px; color: #64748b;">No matching GMVN properties found.</td></tr>`;
+        return;
+      }
+
+      let rowsHtml = '';
+      properties.forEach(p => {
+        p.rooms.forEach((r, rIdx) => {
+          rowsHtml += `
+            <tr>
+              <td><span class="district-tag">${p.district}</span></td>
+              <td><strong>${p.city}</strong></td>
+              <td class="prop-name">${p.property_name}</td>
+              <td class="room-name">${r.name}</td>
+              <td class="tariff-val">₹ ${r.tariff.toLocaleString()}</td>
+              <td style="color: #64748b; font-size: 0.8rem;">${r.plan}</td>
+              <td style="color: #64748b; font-size: 0.8rem; font-family: monospace;">${r.contact}</td>
+              ${dates.map(d => {
+                const count = r.daily_inventory[d] || 0;
+                if (count > 0) {
+                  return `<td><div class="avail-box avail-open">${count} Available</div></td>`;
+                } else {
+                  return `<td><div class="avail-box avail-sold">Sold Out</div></td>`;
+                }
+              }).join('')}
+            </tr>
+          `;
+        });
+      });
+
+      tbody.innerHTML = rowsHtml;
+    }
+
+    function onSearchInput() {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(fetchMatrix, 250);
+    }
+
+    function downloadExcel() {
+      const district = document.getElementById('district-select').value;
+      const search = document.getElementById('city-search').value;
+      const checkin = document.getElementById('checkin-date').value;
+      const checkout = document.getElementById('checkout-date').value;
+
+      const url = `/api/export/excel?district=${encodeURIComponent(district)}&city_search=${encodeURIComponent(search)}&checkin=${checkin}&checkout=${checkout}`;
+      window.location.href = url;
+    }
+
+    window.onload = fetchMatrix;
+  </script>
+</body>
+</html>
