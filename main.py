@@ -223,6 +223,15 @@ def export_excel(
         headers={"Content-Disposition": f"attachment; filename={filename}"}
     )
 
+@app.get("/favicon.ico")
+@app.get("/favicon.png")
+def get_favicon():
+    fav_path = os.path.join(os.path.dirname(__file__), "favicon.png")
+    if os.path.exists(fav_path):
+        from fastapi.responses import FileResponse
+        return FileResponse(fav_path, media_type="image/png")
+    raise HTTPException(status_code=404, detail="Favicon not found")
+
 @app.get("/", response_class=HTMLResponse)
 def serve_index():
     html_path = os.path.join(os.path.dirname(__file__), "index.html")
@@ -234,3 +243,4 @@ def serve_index():
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("main:app", host="0.0.0.0", port=8050, reload=True)
+

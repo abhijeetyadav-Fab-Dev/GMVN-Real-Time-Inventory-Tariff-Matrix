@@ -14,6 +14,7 @@ RUN pip install --no-cache-dir --upgrade pip && \
 # Copy application files
 COPY gmvn_master_accommodations.json .
 COPY index.html .
+COPY favicon.png .
 COPY main.py .
 
 # Expose port
