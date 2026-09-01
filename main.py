@@ -50,18 +50,25 @@ def generate_availability_for_dates(rooms, start_date_str, end_date_str, prop_se
     processed_rooms = []
     for r_idx, r in enumerate(rooms):
         daily_inv = {}
-        base_cap = r.get("available", 4)
+        # Honor base_available directly (0 for sold out properties like Auli on early September dates)
+        base_cap = r.get("base_available", r.get("available", 0))
+        
         for d_str in date_list:
-            hash_val = (int(prop_seed) * 17 + r_idx * 31 + int(d_str.replace("-", ""))) % 10
-            d_obj = datetime.datetime.strptime(d_str, "%Y-%m-%d").date()
-            if d_obj.weekday() in [4, 5]: # Fri, Sat
-                avail_count = max(0, base_cap - (hash_val % (base_cap + 1)))
+            if base_cap == 0:
+                daily_inv[d_str] = 0
             else:
-                avail_count = max(1, base_cap - (hash_val % max(1, base_cap)))
-            daily_inv[d_str] = avail_count
+                # Modulate based on date
+                hash_val = (int(prop_seed) * 17 + r_idx * 31 + int(d_str.replace("-", ""))) % 10
+                d_obj = datetime.datetime.strptime(d_str, "%Y-%m-%d").date()
+                if d_obj.weekday() in [4, 5]: # Friday, Saturday weekend load
+                    avail_count = max(0, base_cap - (hash_val % (base_cap + 1)))
+                else:
+                    avail_count = max(0, base_cap - (hash_val % max(1, base_cap)))
+                daily_inv[d_str] = avail_count
 
         processed_rooms.append({
             "name": r["name"],
+            "code": r.get("code", ""),
             "tariff": r["tariff"],
             "plan": r.get("plan", "EP Plan"),
             "contact": r.get("contact", "0135-2430373"),
