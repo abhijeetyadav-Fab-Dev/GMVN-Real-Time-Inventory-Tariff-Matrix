@@ -54,7 +54,9 @@ def generate_availability_for_dates(rooms, start_date_str, end_date_str, prop_se
         base_cap = r.get("base_available", r.get("available", 0))
         
         for d_str in date_list:
-            if base_cap == 0:
+            if "daily_inventory" in r and d_str in r["daily_inventory"]:
+                daily_inv[d_str] = r["daily_inventory"][d_str]
+            elif base_cap == 0:
                 daily_inv[d_str] = 0
             else:
                 # Modulate based on date

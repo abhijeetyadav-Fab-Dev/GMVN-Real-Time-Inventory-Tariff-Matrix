@@ -11,6 +11,113 @@
   ],
   "properties": [
     {
+      "trh_id": "20",
+      "name": "Ganga Resort (GMVN) - Rishikesh",
+      "district": "Dehradun",
+      "city": "Rishikesh",
+      "address": "Shishamjhari, Muni-ki-Reti, Rishikesh 249201",
+      "contact": "0135-2438651, 9568006683",
+      "overview": "Flagship riverfront property overlooking holy Ganges with private ghat access.",
+      "rooms": [
+        {
+          "name": "2 Bed Deluxe Room (First Floor) (CP Plan)",
+          "code": "DLX-FF",
+          "tariff": 7200,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "contact": "0135-2438651",
+          "base_available": 7,
+          "daily_inventory": {
+            "2026-09-01": 6,
+            "2026-09-02": 7,
+            "2026-09-03": 5,
+            "2026-09-04": 7,
+            "2026-09-05": 4,
+            "2026-09-06": 7
+          },
+          "amenities": [
+            "River View",
+            "A.C.",
+            "CP Plan",
+            "Geyser",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "2 Bed Deluxe Room (Ground Floor) (CP Plan)",
+          "code": "DLX-GF",
+          "tariff": 6700,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "contact": "0135-2438651",
+          "base_available": 7,
+          "daily_inventory": {
+            "2026-09-01": 7,
+            "2026-09-02": 7,
+            "2026-09-03": 7,
+            "2026-09-04": 0,
+            "2026-09-05": 0,
+            "2026-09-06": 0
+          },
+          "amenities": [
+            "Lawn Access",
+            "A.C.",
+            "CP Plan",
+            "Geyser",
+            "Parking",
+            "TV"
+          ]
+        },
+        {
+          "name": "2 Bed Super Deluxe Room (First Floor) (CP Plan)",
+          "code": "SUDLX-FF",
+          "tariff": 7875,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "contact": "0135-2438651",
+          "base_available": 7,
+          "daily_inventory": {
+            "2026-09-01": 7,
+            "2026-09-02": 6,
+            "2026-09-03": 7,
+            "2026-09-04": 7,
+            "2026-09-05": 6,
+            "2026-09-06": 6
+          },
+          "amenities": [
+            "Panoramic Ganga View",
+            "A.C.",
+            "CP Plan",
+            "Geyser",
+            "Tea Kettle",
+            "TV"
+          ]
+        },
+        {
+          "name": "2 Bed Super Deluxe Room (Ground Floor) (CP Plan)",
+          "code": "SUDLX-GF",
+          "tariff": 7500,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "contact": "0135-2438651",
+          "base_available": 8,
+          "daily_inventory": {
+            "2026-09-01": 8,
+            "2026-09-02": 8,
+            "2026-09-03": 6,
+            "2026-09-04": 6,
+            "2026-09-05": 6,
+            "2026-09-06": 4
+          },
+          "amenities": [
+            "Direct Lawn Facing",
+            "A.C.",
+            "CP Plan",
+            "Geyser",
+            "Tea Kettle",
+            "TV"
+          ]
+        }
+      ]
+    },
+    {
       "trh_id": "68",
       "name": "Auli Ski Resort",
       "district": "Chamoli",
@@ -1215,76 +1322,6 @@
           "amenities": [
             "Clean Linen",
             "Shared Bath"
-          ]
-        }
-      ]
-    },
-    {
-      "trh_id": "20",
-      "name": "Ganga Resort, Rishikesh",
-      "district": "Dehradun",
-      "city": "Rishikesh",
-      "address": "Shishamjhari, Muni-ki-Reti, Rishikesh 249201",
-      "contact": "0135-2438651, 9568006683",
-      "overview": "Flagship riverfront property overlooking holy Ganges with private ghat access.",
-      "rooms": [
-        {
-          "name": "Executive AC Room (AC EXEC)",
-          "code": "AC EXEC",
-          "tariff": 5800,
-          "plan": "CP Plan",
-          "contact": "0135-2438651",
-          "base_available": 2,
-          "amenities": [
-            "A.C.",
-            "River View Balcony",
-            "CP Plan",
-            "Geyser",
-            "Parking",
-            "TV"
-          ]
-        },
-        {
-          "name": "AC Deluxe Room (AC DLX)",
-          "code": "AC DLX",
-          "tariff": 4500,
-          "plan": "CP Plan",
-          "contact": "0135-2438651",
-          "base_available": 5,
-          "amenities": [
-            "A.C.",
-            "Geyser",
-            "CP Plan",
-            "TV",
-            "Parking"
-          ]
-        },
-        {
-          "name": "Standard AC Room (AC ORD)",
-          "code": "AC ORD",
-          "tariff": 3500,
-          "plan": "EP Plan",
-          "contact": "0135-2438651",
-          "base_available": 6,
-          "amenities": [
-            "A.C.",
-            "Attached Bath",
-            "TV"
-          ]
-        },
-        {
-          "name": "Executive Suite (SUITE)",
-          "code": "SUITE",
-          "tariff": 8500,
-          "plan": "CP Plan",
-          "contact": "0135-2438651",
-          "base_available": 1,
-          "amenities": [
-            "Ganga Facing Suite",
-            "Living Room",
-            "CP Plan",
-            "A.C.",
-            "TV"
           ]
         }
       ]
