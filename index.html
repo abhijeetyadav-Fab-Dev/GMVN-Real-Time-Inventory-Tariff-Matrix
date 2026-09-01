@@ -8,6 +8,7 @@
   <link rel="shortcut icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -420,20 +421,89 @@
 
   <script>
     let searchTimeout = null;
+    let localDataStore = null;
+
+    function getDatesInRange(startDateStr, endDateStr) {
+      const dates = [];
+      const start = new Date(startDateStr);
+      const end = new Date(endDateStr);
+      if (isNaN(start) || isNaN(end) || start > end) return [];
+      const current = new Date(start);
+      while (current <= end) {
+        dates.push(current.toISOString().split('T')[0]);
+        current.setDate(current.getDate() + 1);
+      }
+      return dates;
+    }
 
     async function fetchMatrix() {
       const district = document.getElementById('district-select').value;
-      const search = document.getElementById('city-search').value;
+      const search = document.getElementById('city-search').value.toLowerCase().trim();
       const checkin = document.getElementById('checkin-date').value;
       const checkout = document.getElementById('checkout-date').value;
 
       document.getElementById('date-range-label').innerText = `${checkin} to ${checkout}`;
 
-      const url = `/api/inventory-matrix?district=${encodeURIComponent(district)}&city_search=${encodeURIComponent(search)}&checkin=${checkin}&checkout=${checkout}`;
-      const res = await fetch(url);
-      const data = await res.json();
+      // Check if running on GitHub Pages (static) or Python server
+      try {
+        const url = `/api/inventory-matrix?district=${encodeURIComponent(district)}&city_search=${encodeURIComponent(search)}&checkin=${checkin}&checkout=${checkout}`;
+        const res = await fetch(url);
+        if (res.ok) {
+          const data = await res.json();
+          renderTable(data.dates, data.properties);
+          return;
+        }
+      } catch (e) {
+        // Fallback to static JSON file on GitHub Pages
+      }
 
-      renderTable(data.dates, data.properties);
+      // Static GitHub Pages fallback
+      if (!localDataStore) {
+        const res = await fetch('./gmvn_master_accommodations.json');
+        localDataStore = await res.json();
+      }
+
+      const dates = getDatesInRange(checkin, checkout);
+      let filteredProps = localDataStore.properties || [];
+
+      if (district && district !== 'all') {
+        filteredProps = filteredProps.filter(p => p.district.toLowerCase() === district.toLowerCase());
+      }
+      if (search) {
+        filteredProps = filteredProps.filter(p =>
+          p.name.toLowerCase().includes(search) ||
+          p.city.toLowerCase().includes(search) ||
+          p.district.toLowerCase().includes(search)
+        );
+      }
+
+      const processed = filteredProps.map(p => {
+        return {
+          trh_id: p.trh_id,
+          property_name: p.name,
+          district: p.district,
+          city: p.city,
+          contact: p.contact,
+          overview: p.overview,
+          rooms: p.rooms.map(r => {
+            const dailyInv = {};
+            dates.forEach(d => {
+              dailyInv[d] = r.daily_inventory && r.daily_inventory[d] !== undefined ? r.daily_inventory[d] : r.base_available;
+            });
+            return {
+              name: r.name,
+              code: r.code,
+              tariff: r.tariff,
+              plan: r.plan,
+              contact: r.contact || p.contact,
+              base_available: r.base_available,
+              daily_inventory: dailyInv
+            };
+          })
+        };
+      });
+
+      renderTable(dates, processed);
     }
 
     function renderTable(dates, properties) {
@@ -502,8 +572,17 @@
       const checkin = document.getElementById('checkin-date').value;
       const checkout = document.getElementById('checkout-date').value;
 
-      const url = `/api/export/excel?district=${encodeURIComponent(district)}&city_search=${encodeURIComponent(search)}&checkin=${checkin}&checkout=${checkout}`;
-      window.location.href = url;
+      // Try server endpoint first
+      if (window.location.hostname !== 'github.io' && !window.location.hostname.includes('github.io')) {
+        const url = `/api/export/excel?district=${encodeURIComponent(district)}&city_search=${encodeURIComponent(search)}&checkin=${checkin}&checkout=${checkout}`;
+        window.location.href = url;
+        return;
+      }
+
+      // Static GitHub Pages Client-Side Excel Generator
+      const table = document.getElementById('matrix-table');
+      const wb = XLSX.utils.table_to_book(table, { sheet: "GMVN Matrix" });
+      XLSX.writeFile(wb, `GMVN_Inventory_Availability_${checkin}_to_${checkout}.xlsx`);
     }
 
     async function triggerLiveGmvnSync() {
@@ -536,6 +615,7 @@
         }, 2200);
       } catch (err) {
         console.error('Sync error:', err);
+        localDataStore = null;
         await fetchMatrix();
         btnText.innerText = 'Refreshed';
         syncDot.style.display = 'inline-block';
