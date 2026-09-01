@@ -71,8 +71,90 @@ def generate_availability_for_dates(rooms, start_date_str, end_date_str, prop_se
 
     return date_list, processed_rooms
 
+import urllib.request
+import asyncio
+import websockets
+from bs4 import BeautifulSoup
+import re
+
+# In-memory live session cache for scraped results
+LIVE_SCRAPE_CACHE = {}
+
+async def scrape_gmvn_live_room_tariff(trh_id: str, checkin_str: str, checkout_str: str):
+    """
+    Connects to Chrome CDP (ws://127.0.0.1:9222) if active, or returns parsed live cache.
+    Formats dates to DD-MM-YYYY as expected by GMVN PHP backend.
+    """
+    try:
+        cin_d = datetime.datetime.strptime(checkin_str, "%Y-%m-%d").strftime("%d-%m-%Y")
+        cout_d = datetime.datetime.strptime(checkout_str, "%Y-%m-%d").strftime("%d-%m-%Y")
+    except Exception:
+        cin_d = checkin_str
+        cout_d = checkout_str
+
+    cache_key = f"{trh_id}_{cin_d}_{cout_d}"
+    if cache_key in LIVE_SCRAPE_CACHE:
+        return LIVE_SCRAPE_CACHE[cache_key]
+
+    url = f"https://gmvnonline.com/room-tariff.php?trhID={trh_id}&checkindate={cin_d}&checkoutdate={cout_d}&adults=&child=&log=23f69e30bb19218a"
+    try:
+        req = urllib.request.Request("http://127.0.0.1:9222/json", headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=1.5) as r:
+            tabs = json.loads(r.read())
+            ws_url = tabs[0]["webSocketDebuggerUrl"]
+        
+        async with websockets.connect(ws_url, max_size=10*1024*1024) as ws:
+            await ws.send(json.dumps({"id": 1, "method": "Page.navigate", "params": {"url": url}}))
+            await ws.recv()
+            await asyncio.sleep(2.5)
+            await ws.send(json.dumps({"id": 2, "method": "Runtime.evaluate", "params": {"expression": "document.documentElement.outerHTML", "returnByValue": True}}))
+            resp = json.loads(await ws.recv())
+            html = resp.get("result", {}).get("result", {}).get("value", "")
+            
+            soup = BeautifulSoup(html, "html.parser")
+            rooms = []
+            for box in soup.find_all("div", class_="blog-content"):
+                h3 = box.find("h3")
+                if not h3 or "tariff" in h3.text.lower():
+                    continue
+                rname = h3.text.strip()
+                parent = box.find_parent("div", class_="row") or box.parent
+                tariff = 0
+                avail = 0
+                contact = "9568006683"
+                plan = "CP Plan (Bed Tea & Breakfast)"
+                if parent:
+                    text = parent.text
+                    for line in text.splitlines():
+                        l = line.strip()
+                        if "tariff" in l.lower() or "₹" in l:
+                            nums = re.findall(r'\d+', l.replace(",", ""))
+                            if nums and tariff == 0: tariff = int(nums[0])
+                        if "available room" in l.lower() or "available bed" in l.lower():
+                            nums = re.findall(r'\d+', l)
+                            if nums: avail = int(nums[0])
+                        if "not available" in l.lower():
+                            avail = 0
+                        if "contact no" in l.lower():
+                            m_nums = re.findall(r'[\d\s,]+', l)
+                            if m_nums: contact = m_nums[0].strip()
+                rooms.append({
+                    "name": rname,
+                    "tariff": tariff,
+                    "available": avail,
+                    "contact": contact,
+                    "plan": plan
+                })
+            if rooms:
+                LIVE_SCRAPE_CACHE[cache_key] = rooms
+                return rooms
+    except Exception as e:
+        print(f"CDP Scrape fallback: {e}")
+
+    return None
+
 @app.get("/api/inventory-matrix")
-def get_inventory_matrix(
+async def get_inventory_matrix(
     district: Optional[str] = None,
     city_search: Optional[str] = None,
     checkin: Optional[str] = "2026-09-25",
@@ -88,23 +170,57 @@ def get_inventory_matrix(
         s = city_search.lower().strip()
         props = [p for p in props if s in p["name"].lower() or s in p["city"].lower() or s in p["district"].lower()]
 
+    # If single property queried or live sync requested, try live scraping
     results = []
     all_dates = []
+    
+    # Calculate date list
+    try:
+        start_d = datetime.datetime.strptime(checkin, "%Y-%m-%d").date()
+        end_d = datetime.datetime.strptime(checkout, "%Y-%m-%d").date()
+        if end_d < start_d: end_d = start_d
+    except Exception:
+        start_d = datetime.date.today()
+        end_d = start_d + datetime.timedelta(days=1)
+        
+    date_list = []
+    delta_days = min(30, (end_d - start_d).days + 1)
+    for i in range(delta_days):
+        date_list.append((start_d + datetime.timedelta(days=i)).strftime("%Y-%m-%d"))
+    all_dates = date_list
+
     for p in props:
-        dates, rooms_with_inv = generate_availability_for_dates(
-            p.get("rooms", []),
-            checkin or "2026-09-25",
-            checkout or "2026-09-30",
-            prop_seed=int(p.get("trh_id", 1))
-        )
-        if not all_dates:
-            all_dates = dates
+        trh_id = p.get("trh_id", "")
+        # Check if live scrape is available
+        live_rooms = await scrape_gmvn_live_room_tariff(trh_id, checkin, checkout)
+        
+        rooms_output = []
+        if live_rooms:
+            for lr in live_rooms:
+                daily_inv = {d_str: lr["available"] for d_str in date_list}
+                rooms_output.append({
+                    "name": lr["name"],
+                    "code": lr["name"][:5].upper(),
+                    "tariff": lr["tariff"],
+                    "plan": lr["plan"],
+                    "contact": lr["contact"],
+                    "base_available": lr["available"],
+                    "daily_inventory": daily_inv
+                })
+        else:
+            _, rooms_output = generate_availability_for_dates(
+                p.get("rooms", []),
+                checkin or "2026-09-25",
+                checkout or "2026-09-30",
+                prop_seed=int(p.get("trh_id", 1))
+            )
+
         results.append({
             "trh_id": p["trh_id"],
             "district": p["district"],
             "city": p["city"],
             "property_name": p["name"],
-            "rooms": rooms_with_inv
+            "rooms": rooms_output
         })
 
     return {
@@ -114,25 +230,27 @@ def get_inventory_matrix(
     }
 
 @app.post("/api/live-sync")
-async def live_sync(checkin: Optional[str] = "2026-09-09", checkout: Optional[str] = "2026-09-10"):
+async def live_sync(checkin: Optional[str] = "2026-10-21", checkout: Optional[str] = "2026-10-30", trh_id: Optional[str] = "82"):
     """
-    Live syncs current matrix data against live browser session or master GMVN repository.
+    Directly forces live scrape of GMVN for specific dates and updates cache.
     """
-    try:
-        # Load latest master accommodation repository
-        data = load_data()
-        return {"success": True, "message": f"Successfully synchronized {len(data.get('properties', []))} properties for {checkin} - {checkout}", "properties_count": len(data.get("properties", []))}
-    except Exception as e:
-        return {"success": False, "error": str(e)}
+    LIVE_SCRAPE_CACHE.clear()
+    rooms = await scrape_gmvn_live_room_tariff(trh_id, checkin, checkout)
+    return {
+        "success": True,
+        "scraped_rooms": rooms or [],
+        "checkin": checkin,
+        "checkout": checkout
+    }
 
 @app.get("/api/export/excel")
-def export_excel(
+async def export_excel(
     district: Optional[str] = None,
     city_search: Optional[str] = None,
     checkin: Optional[str] = "2026-09-25",
     checkout: Optional[str] = "2026-09-30"
 ):
-    matrix_data = get_inventory_matrix(district, city_search, checkin, checkout)
+    matrix_data = await get_inventory_matrix(district, city_search, checkin, checkout)
     dates = matrix_data.get("dates", [])
     props = matrix_data.get("properties", [])
 
