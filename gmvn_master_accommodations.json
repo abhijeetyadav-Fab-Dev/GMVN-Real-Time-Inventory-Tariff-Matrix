@@ -640,7 +640,7 @@
     },
     {
       "trh_id": "72",
-      "name": "Chilla Tourist Resort, Rajaji National Park",
+      "name": "Chilla Resort Rajaji National Park (GMVN) - Chilla (Near Haridwar)",
       "district": "Haridwar",
       "city": "Chilla / Haridwar",
       "address": "Rajaji Tiger Reserve Range, Chilla, Haridwar 249306",
@@ -648,15 +648,24 @@
       "overview": "Eco-resort nestled inside Rajaji Tiger Reserve, ideal for wildlife safaris and bird watching.",
       "rooms": [
         {
-          "name": "AC Deluxe Room (AC DLX)",
-          "code": "AC DLX",
-          "tariff": 4600,
-          "plan": "CP Plan",
+          "name": "2 Bed Deluxe AC Room (EP Plan)",
+          "code": "2BD-AC-DLX",
+          "tariff": 2000,
+          "plan": "EP Plan",
           "contact": "9568006622",
-          "base_available": 4,
+          "base_available": 2,
+          "daily_inventory": {
+            "31 Dec": 4,
+            "1 Jan": 4,
+            "2 Jan": 4,
+            "3 Jan": 4,
+            "4 Jan": 4,
+            "5 Jan": 4,
+            "6 Jan": 4,
+            "7 Jan": 4
+          },
           "amenities": [
             "A.C.",
-            "CP Plan",
             "Jungle View",
             "Geyser",
             "TV",
@@ -664,31 +673,78 @@
           ]
         },
         {
-          "name": "AC Hut / Cottage (DH)",
-          "code": "DH",
-          "tariff": 3800,
-          "plan": "CP Plan",
-          "contact": "9568006622",
-          "base_available": 2,
-          "amenities": [
-            "A.C.",
-            "Private Verandah",
-            "Attached Bath",
-            "Hot Water"
-          ]
-        },
-        {
-          "name": "Deluxe Room (DLX)",
-          "code": "DLX",
-          "tariff": 2800,
+          "name": "4 Bed Family Hut Room (EP Plan)",
+          "code": "4BD-FAM-HUT",
+          "tariff": 7875,
           "plan": "EP Plan",
           "contact": "9568006622",
           "base_available": 5,
+          "daily_inventory": {
+            "31 Dec": 4,
+            "1 Jan": 4,
+            "2 Jan": 4,
+            "3 Jan": 4,
+            "4 Jan": 4,
+            "5 Jan": 4,
+            "6 Jan": 4,
+            "7 Jan": 4
+          },
           "amenities": [
-            "Fan",
+            "Family Suite",
+            "Private Hut",
+            "Attached Bath",
+            "Hot Water",
+            "Parking"
+          ]
+        },
+        {
+          "name": "4 Bed Family Deluxe AC Room (EP Plan)",
+          "code": "4BD-FAM-AC-DLX",
+          "tariff": 3000,
+          "plan": "EP Plan",
+          "contact": "9568006622",
+          "base_available": 4,
+          "daily_inventory": {
+            "31 Dec": 2,
+            "1 Jan": 2,
+            "2 Jan": 2,
+            "3 Jan": 2,
+            "4 Jan": 2,
+            "5 Jan": 2,
+            "6 Jan": 2,
+            "7 Jan": 2
+          },
+          "amenities": [
+            "A.C.",
+            "4 Beds",
             "Geyser",
             "Attached Bath",
-            "Parking"
+            "TV"
+          ]
+        },
+        {
+          "name": "2 Bed Super Deluxe Hut Room (EP Plan)",
+          "code": "2BD-SUDLX-HUT",
+          "tariff": 6200,
+          "plan": "EP Plan",
+          "contact": "9568006622",
+          "base_available": 4,
+          "daily_inventory": {
+            "31 Dec": 3,
+            "1 Jan": 3,
+            "2 Jan": 4,
+            "3 Jan": 4,
+            "4 Jan": 4,
+            "5 Jan": 4,
+            "6 Jan": 4,
+            "7 Jan": 4
+          },
+          "amenities": [
+            "Super Deluxe",
+            "Private Verandah",
+            "Hot and Cold Water",
+            "Tea Kettle",
+            "TV"
           ]
         }
       ]
