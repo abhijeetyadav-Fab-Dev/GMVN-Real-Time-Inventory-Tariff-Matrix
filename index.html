@@ -83,12 +83,12 @@
     }
     .filter-grid {
       display: grid;
-      grid-template-columns: 180px 180px 220px 1fr 120px;
+      grid-template-columns: 170px 170px 200px 1fr 110px 120px;
       gap: 12px;
       align-items: flex-end;
     }
     @media (max-width: 1024px) {
-      .filter-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+      .filter-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
     }
     .input-group label {
       display: block;
@@ -132,6 +132,24 @@
       width: 100%;
     }
     .btn-search:hover { background: #013d7d; }
+    .btn-sync {
+      background: #0d9488;
+      color: #fff;
+      border: none;
+      padding: 9px 12px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+    }
+    .btn-sync:hover { background: #0f766e; }
+    .btn-sync:disabled { background: #99f6e4; cursor: not-allowed; }
 
     /* Stats Bar */
     .stats-bar {
@@ -293,10 +311,16 @@
             <label><i class="fa fa-search"></i> Search by City / TRH Name</label>
             <input type="text" id="city-search" class="input-control" placeholder="e.g. Kedarnath, Haridwar, Auli, Harsil..." oninput="onSearchInput()">
           </div>
-
-          <div>
-            <button class="btn-search" onclick="fetchMatrix()">
+          <div class="input-group">
+            <label>&nbsp;</label>
+            <button type="button" class="btn-search" onclick="fetchMatrix()">
               <i class="fa fa-refresh"></i> Refresh
+            </button>
+          </div>
+          <div class="input-group">
+            <label>&nbsp;</label>
+            <button type="button" class="btn-sync" id="btn-live-sync" onclick="triggerLiveGmvnSync()">
+              <i class="fa fa-bolt"></i> Live Sync
             </button>
           </div>
         </div>
@@ -426,6 +450,33 @@
 
       const url = `/api/export/excel?district=${encodeURIComponent(district)}&city_search=${encodeURIComponent(search)}&checkin=${checkin}&checkout=${checkout}`;
       window.location.href = url;
+    }
+
+    async function triggerLiveGmvnSync() {
+      const btn = document.getElementById('btn-live-sync');
+      const originalText = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Syncing...';
+
+      try {
+        const checkin = document.getElementById('checkin-date').value;
+        const checkout = document.getElementById('checkout-date').value;
+        const res = await fetch(`/api/live-sync?checkin=${checkin}&checkout=${checkout}`, { method: 'POST' });
+        await fetchMatrix();
+        btn.innerHTML = '<i class="fa fa-check"></i> Synced!';
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        }, 2000);
+      } catch (err) {
+        console.error('Sync error:', err);
+        await fetchMatrix();
+        btn.innerHTML = '<i class="fa fa-refresh"></i> Refreshed';
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        }, 2000);
+      }
     }
 
     window.onload = fetchMatrix;

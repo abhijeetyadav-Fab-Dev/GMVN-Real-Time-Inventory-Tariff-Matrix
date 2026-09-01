@@ -11,109 +11,49 @@
   ],
   "properties": [
     {
-      "trh_id": "20",
-      "name": "Ganga Resort (GMVN) - Rishikesh",
+      "trh_id": "82",
+      "name": "RISHIKESH GANGA RESORT",
       "district": "Dehradun",
       "city": "Rishikesh",
-      "address": "Shishamjhari, Muni-ki-Reti, Rishikesh 249201",
-      "contact": "0135-2438651, 9568006683",
-      "overview": "Flagship riverfront property overlooking holy Ganges with private ghat access.",
+      "address": "Sheesham Jhari, near Purnananda Inter College, Muni Ki Reti, Rishikesh, Uttarakhand 249137",
+      "contact": "9568006683",
+      "overview": "Situated on the right bank of the Ganges River in Muni Ki Reti, Rishikesh.",
       "rooms": [
         {
-          "name": "2 Bed Deluxe Room (First Floor) (CP Plan)",
-          "code": "DLX-FF",
-          "tariff": 7200,
+          "name": "Deluxe 1st FloorGarden View",
+          "code": "DLX-1F",
+          "tariff": 6600,
           "plan": "CP Plan (Bed Tea & Breakfast)",
-          "contact": "0135-2438651",
-          "base_available": 7,
-          "daily_inventory": {
-            "2026-09-01": 6,
-            "2026-09-02": 7,
-            "2026-09-03": 5,
-            "2026-09-04": 7,
-            "2026-09-05": 4,
-            "2026-09-06": 7
-          },
-          "amenities": [
-            "River View",
-            "A.C.",
-            "CP Plan",
-            "Geyser",
-            "Parking",
-            "TV"
-          ]
+          "contact": "9568006683",
+          "base_available": 6,
+          "amenities": ["A.C.", "Balcony", "CP Plan", "Fan", "Gyeser", "Heater/Blower", "Hot and Cold Water", "Intercome", "Mosquito Repellent", "Sleeper", "Tea Kettle", "Tooth Kit", "TV", "Wardrobe", "Wifi"]
         },
         {
-          "name": "2 Bed Deluxe Room (Ground Floor) (CP Plan)",
+          "name": "Deluxe Ground FloorGarden View",
           "code": "DLX-GF",
-          "tariff": 6700,
+          "tariff": 6200,
           "plan": "CP Plan (Bed Tea & Breakfast)",
-          "contact": "0135-2438651",
+          "contact": "9568006683",
           "base_available": 7,
-          "daily_inventory": {
-            "2026-09-01": 7,
-            "2026-09-02": 7,
-            "2026-09-03": 7,
-            "2026-09-04": 0,
-            "2026-09-05": 0,
-            "2026-09-06": 0
-          },
-          "amenities": [
-            "Lawn Access",
-            "A.C.",
-            "CP Plan",
-            "Geyser",
-            "Parking",
-            "TV"
-          ]
+          "amenities": ["A.C.", "Balcony", "CP Plan", "Fan", "Gyeser", "Heater/Blower", "Hot and Cold Water", "Intercome", "Mosquito Repellent", "Tea Kettle", "Tooth Kit", "TV", "Wardrobe", "Wifi"]
         },
         {
-          "name": "2 Bed Super Deluxe Room (First Floor) (CP Plan)",
-          "code": "SUDLX-FF",
-          "tariff": 7875,
-          "plan": "CP Plan (Bed Tea & Breakfast)",
-          "contact": "0135-2438651",
-          "base_available": 7,
-          "daily_inventory": {
-            "2026-09-01": 7,
-            "2026-09-02": 6,
-            "2026-09-03": 7,
-            "2026-09-04": 7,
-            "2026-09-05": 6,
-            "2026-09-06": 6
-          },
-          "amenities": [
-            "Panoramic Ganga View",
-            "A.C.",
-            "CP Plan",
-            "Geyser",
-            "Tea Kettle",
-            "TV"
-          ]
-        },
-        {
-          "name": "2 Bed Super Deluxe Room (Ground Floor) (CP Plan)",
-          "code": "SUDLX-GF",
+          "name": "Super Deluxe 1st Floor",
+          "code": "SUDLX-1F",
           "tariff": 7500,
           "plan": "CP Plan (Bed Tea & Breakfast)",
-          "contact": "0135-2438651",
-          "base_available": 8,
-          "daily_inventory": {
-            "2026-09-01": 8,
-            "2026-09-02": 8,
-            "2026-09-03": 6,
-            "2026-09-04": 6,
-            "2026-09-05": 6,
-            "2026-09-06": 4
-          },
-          "amenities": [
-            "Direct Lawn Facing",
-            "A.C.",
-            "CP Plan",
-            "Geyser",
-            "Tea Kettle",
-            "TV"
-          ]
+          "contact": "9568006683",
+          "base_available": 7,
+          "amenities": ["A.C.", "Balcony", "CP Plan", "Fan", "Gyeser", "Heater/Blower", "Hot and Cold Water", "Intercome", "Mosquito Repellent", "Sleeper", "Tea Kettle", "Tooth Kit", "TV", "Wardrobe", "Wifi"]
+        },
+        {
+          "name": "Super Deluxe Ground FloorRiver View",
+          "code": "SUDLX-GF",
+          "tariff": 7200,
+          "plan": "CP Plan (Bed Tea & Breakfast)",
+          "contact": "9568006683",
+          "base_available": 6,
+          "amenities": ["A.C.", "Balcony", "CP Plan", "Fan", "Gyeser", "Heater/Blower", "Hot and Cold Water", "Intercome", "Mosquito Repellent", "Sleeper", "Tea Kettle", "Tooth Kit", "TV", "Wardrobe", "Wifi"]
         }
       ]
     },
