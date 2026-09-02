@@ -205,70 +205,64 @@
       "name": "Hotel Alaknanda, Haridwar",
       "district": "Haridwar",
       "city": "Haridwar",
-      "address": "Hotel Alaknanda, Haridwar, Haridwar, Uttarakhand",
-      "contact": "",
-      "overview": "Official Tourist Rest House operated by GMVN in Haridwar.",
+      "address": "Alaknanda, Haridwar, Mayapur, Haridwar | 2.7 km from Chandi Devi Temple",
+      "contact": "9012453541",
+      "overview": "If you are looking for a hotel in Haridwar, look no further than Hotel Alaknanda. The city is situated on the right bank of the Ganges river, at the foothills of the Shivalik ranges.",
       "rooms": [
         {
           "name": "AC Deluxe Room",
-          "code": "AC-DE",
+          "code": "AC-DLX",
           "tariff": 5400,
           "plan": "CP Plan (Bed Tea & Breakfast) for 2 Person",
-          "contact": "",
-          "base_available": 1,
-          "daily_inventory": {
-            "2026-09-01": 1,
-            "2026-09-02": 1,
-            "2026-09-03": 1,
-            "2026-09-04": 1,
-            "2026-09-05": 1
-          },
+          "contact": "9012453541",
+          "base_available": 0,
           "amenities": [
             "A.C.",
-            "Hot Water",
-            "Geyser",
+            "CP Plan (Bed Tea & Breakfast) for 2 Person",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Intercome",
+            "Parking",
+            "Tea Kettle",
             "TV"
           ]
         },
         {
           "name": "AC Executive Room",
-          "code": "AC-EX",
+          "code": "AC-EXEC",
           "tariff": 4800,
           "plan": "CP Plan (Bed Tea & Breakfast) for 2 Person",
-          "contact": "",
-          "base_available": 6,
-          "daily_inventory": {
-            "2026-09-01": 6,
-            "2026-09-02": 6,
-            "2026-09-03": 6,
-            "2026-09-04": 6,
-            "2026-09-05": 6
-          },
+          "contact": "9012453541",
+          "base_available": 0,
           "amenities": [
             "A.C.",
-            "Hot Water",
-            "Geyser",
+            "CP Plan (Bed Tea & Breakfast) for 2 Person",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Intercome",
+            "Mosquito Repellent",
+            "Parking",
+            "Tea Kettle",
             "TV"
           ]
         },
         {
           "name": "AC Ordinary Room",
-          "code": "AC-OR",
+          "code": "AC-ORD",
           "tariff": 3900,
           "plan": "CP Plan (Bed Tea & Breakfast) for 2 Person",
-          "contact": "",
-          "base_available": 10,
-          "daily_inventory": {
-            "2026-09-01": 10,
-            "2026-09-02": 10,
-            "2026-09-03": 10,
-            "2026-09-04": 10,
-            "2026-09-05": 10
-          },
+          "contact": "9012453541",
+          "base_available": 8,
           "amenities": [
             "A.C.",
-            "Hot Water",
-            "Geyser",
+            "CP Plan (Bed Tea & Breakfast) for 2 Person",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Mosquito Repellent",
+            "Parking",
             "TV"
           ]
         },
@@ -277,20 +271,17 @@
           "code": "SUITE",
           "tariff": 7100,
           "plan": "CP Plan (Bed Tea & Breakfast) for 2 Person",
-          "contact": "",
+          "contact": "9012453541",
           "base_available": 2,
-          "daily_inventory": {
-            "2026-09-01": 2,
-            "2026-09-02": 2,
-            "2026-09-03": 2,
-            "2026-09-04": 2,
-            "2026-09-05": 2
-          },
           "amenities": [
             "A.C.",
-            "Hot Water",
-            "Geyser",
-            "TV"
+            "CP Plan (Bed Tea & Breakfast) for 2 Person",
+            "Fan",
+            "Gyeser",
+            "Hot and Cold Water",
+            "Intercome",
+            "Parking",
+            "Tea Kettle"
           ]
         }
       ]

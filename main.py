@@ -77,7 +77,8 @@ import websockets
 from bs4 import BeautifulSoup
 import re
 
-# In-memory live session cache for scraped results
+# Master in-memory data cache
+CACHED_DATA = load_data()
 LIVE_SCRAPE_CACHE = {}
 
 async def scrape_gmvn_live_room_tariff(trh_id: str, checkin_str: str, checkout_str: str):
@@ -106,18 +107,23 @@ async def scrape_gmvn_live_room_tariff(trh_id: str, checkin_str: str, checkout_s
         async with websockets.connect(ws_url, max_size=10*1024*1024) as ws:
             await ws.send(json.dumps({"id": 1, "method": "Page.navigate", "params": {"url": url}}))
             await ws.recv()
-            await asyncio.sleep(2.5)
+            await asyncio.sleep(2.0)
             await ws.send(json.dumps({"id": 2, "method": "Runtime.evaluate", "params": {"expression": "document.documentElement.outerHTML", "returnByValue": True}}))
             resp = json.loads(await ws.recv())
             html = resp.get("result", {}).get("result", {}).get("value", "")
             
             soup = BeautifulSoup(html, "html.parser")
             rooms = []
+            seen = set()
             for box in soup.find_all("div", class_="blog-content"):
                 h3 = box.find("h3")
                 if not h3 or "tariff" in h3.text.lower():
                     continue
                 rname = h3.text.strip()
+                if rname in seen:
+                    continue
+                seen.add(rname)
+                
                 parent = box.find_parent("div", class_="row") or box.parent
                 tariff = 0
                 avail = 0
@@ -138,6 +144,8 @@ async def scrape_gmvn_live_room_tariff(trh_id: str, checkin_str: str, checkout_s
                         if "contact no" in l.lower():
                             m_nums = re.findall(r'[\d\s,]+', l)
                             if m_nums: contact = m_nums[0].strip()
+                        if "plan" in l.lower():
+                            plan = l
                 rooms.append({
                     "name": rname,
                     "tariff": tariff,
@@ -149,7 +157,7 @@ async def scrape_gmvn_live_room_tariff(trh_id: str, checkin_str: str, checkout_s
                 LIVE_SCRAPE_CACHE[cache_key] = rooms
                 return rooms
     except Exception as e:
-        print(f"CDP Scrape fallback: {e}")
+        print(f"CDP Scrape fallback for TRH {trh_id}: {e}")
 
     return None
 
@@ -160,8 +168,8 @@ async def get_inventory_matrix(
     checkin: Optional[str] = "2026-09-25",
     checkout: Optional[str] = "2026-09-30"
 ):
-    data = load_data()
-    props = data.get("properties", [])
+    global CACHED_DATA
+    props = CACHED_DATA.get("properties", [])
 
     if district and district.lower() != "all":
         props = [p for p in props if p["district"].lower() == district.lower()]
@@ -170,10 +178,6 @@ async def get_inventory_matrix(
         s = city_search.lower().strip()
         props = [p for p in props if s in p["name"].lower() or s in p["city"].lower() or s in p["district"].lower()]
 
-    # If single property queried or live sync requested, try live scraping
-    results = []
-    all_dates = []
-    
     # Calculate date list
     try:
         start_d = datetime.datetime.strptime(checkin, "%Y-%m-%d").date()
@@ -184,14 +188,15 @@ async def get_inventory_matrix(
         end_d = start_d + datetime.timedelta(days=1)
         
     date_list = []
-    delta_days = min(30, (end_d - start_d).days + 1)
+    delta_days = min(31, (end_d - start_d).days + 1)
     for i in range(delta_days):
         date_list.append((start_d + datetime.timedelta(days=i)).strftime("%Y-%m-%d"))
     all_dates = date_list
 
+    results = []
     for p in props:
         trh_id = p.get("trh_id", "")
-        # Check if live scrape is available
+        # Real-time live scrape for filtered properties
         live_rooms = await scrape_gmvn_live_room_tariff(trh_id, checkin, checkout)
         
         rooms_output = []
@@ -200,7 +205,7 @@ async def get_inventory_matrix(
                 daily_inv = {d_str: lr["available"] for d_str in date_list}
                 rooms_output.append({
                     "name": lr["name"],
-                    "code": lr["name"][:5].upper(),
+                    "code": lr["name"][:5].upper().replace(" ", "-"),
                     "tariff": lr["tariff"],
                     "plan": lr["plan"],
                     "contact": lr["contact"],
@@ -230,15 +235,41 @@ async def get_inventory_matrix(
     }
 
 @app.post("/api/live-sync")
-async def live_sync(checkin: Optional[str] = "2026-10-21", checkout: Optional[str] = "2026-10-30", trh_id: Optional[str] = "82"):
+async def live_sync(
+    district: Optional[str] = None,
+    city_search: Optional[str] = None,
+    checkin: Optional[str] = "2026-09-02",
+    checkout: Optional[str] = "2026-09-30"
+):
     """
-    Directly forces live scrape of GMVN for specific dates and updates cache.
+    Directly clears live cache, scrapes all currently filtered GMVN properties, and updates in-memory feed.
     """
+    global CACHED_DATA, LIVE_SCRAPE_CACHE
     LIVE_SCRAPE_CACHE.clear()
-    rooms = await scrape_gmvn_live_room_tariff(trh_id, checkin, checkout)
+    
+    props = CACHED_DATA.get("properties", [])
+    if district and district.lower() != "all":
+        props = [p for p in props if p["district"].lower() == district.lower()]
+    if city_search:
+        s = city_search.lower().strip()
+        props = [p for p in props if s in p["name"].lower() or s in p["city"].lower() or s in p["district"].lower()]
+
+    scraped_count = 0
+    for p in props:
+        trh_id = p.get("trh_id", "")
+        rooms = await scrape_gmvn_live_room_tariff(trh_id, checkin, checkout)
+        if rooms:
+            scraped_count += 1
+            # Update memory store
+            for r in p.get("rooms", []):
+                for lr in rooms:
+                    if lr["name"].lower() == r["name"].lower():
+                        r["base_available"] = lr["available"]
+                        r["tariff"] = lr["tariff"]
+
     return {
         "success": True,
-        "scraped_rooms": rooms or [],
+        "scraped_properties_count": scraped_count,
         "checkin": checkin,
         "checkout": checkout
     }

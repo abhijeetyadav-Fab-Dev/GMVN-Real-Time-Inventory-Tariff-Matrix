@@ -644,9 +644,11 @@
       syncIndicator.innerHTML = '<i class="fa fa-refresh fa-spin"></i> Fetching Real-time GMVN Tariffs & Rooms...';
 
       try {
+        const district = document.getElementById('district-select').value;
+        const search = document.getElementById('city-search').value;
         const checkin = document.getElementById('checkin-date').value;
         const checkout = document.getElementById('checkout-date').value;
-        const res = await fetch(`/api/live-sync?checkin=${checkin}&checkout=${checkout}`, { method: 'POST' });
+        const res = await fetch(`/api/live-sync?district=${encodeURIComponent(district)}&city_search=${encodeURIComponent(search)}&checkin=${checkin}&checkout=${checkout}`, { method: 'POST' });
         await fetchMatrix();
         
         btnText.innerHTML = '<i class="fa fa-check"></i> Synced!';
