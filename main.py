@@ -194,10 +194,14 @@ async def get_inventory_matrix(
     all_dates = date_list
 
     results = []
+    # If a specific property is searched, fetch live; otherwise serve master feed instantly
+    do_live_scrape = bool(city_search and len(props) <= 3)
+
     for p in props:
         trh_id = p.get("trh_id", "")
-        # Real-time live scrape for filtered properties
-        live_rooms = await scrape_gmvn_live_room_tariff(trh_id, checkin, checkout)
+        live_rooms = None
+        if do_live_scrape:
+            live_rooms = await scrape_gmvn_live_room_tariff(trh_id, checkin, checkout)
         
         rooms_output = []
         if live_rooms:
