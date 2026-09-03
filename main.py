@@ -122,7 +122,7 @@ LIVE_SCRAPE_CACHE = {}
 # Global Session Cookie Storage & Scraping Config
 ACTIVE_SESSION_COOKIES = []
 DEFAULT_INTER_REQUEST_DELAY_MS = 1200
-DEFAULT_CONCURRENCY_LIMIT = 2
+DEFAULT_CONCURRENCY_LIMIT = 1
 DEFAULT_RATE_LIMIT_RETRIES = 3
 
 @app.post("/api/capture-session-cookies")
@@ -287,6 +287,11 @@ async def scrape_gmvn_live_room_tariff(
 
     return None, "FALLBACK_STATIC", "HTML fetched but 0 rooms matched or request timed out."
 
+def normalize_room_name(name: str) -> str:
+    """Helper to normalize room name strings for robust comparison."""
+    if not name:
+        return ""
+    return re.sub(r'[^a-zA-Z0-9]', '', str(name)).lower()
 
 @app.get("/api/inventory-matrix")
 async def get_inventory_matrix(
