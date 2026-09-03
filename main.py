@@ -213,13 +213,14 @@ async def scrape_gmvn_live_room_tariff(
                 await ws.send(json.dumps({"id": 2, "method": "Page.navigate", "params": {"url": target_url}}))
                 await ws.recv()
 
-                # Dynamic polling to resolve Cloudflare Turnstile challenge
-                for _ in range(12):
-                    await asyncio.sleep(0.8)
-                    await ws.send(json.dumps({"id": 100, "method": "Runtime.evaluate", "params": {"expression": "document.title", "returnByValue": True}}))
+                # Dynamic polling to resolve Cloudflare Turnstile challenge (up to 15s)
+                for poll_idx in range(15):
+                    await asyncio.sleep(1.0)
+                    await ws.send(json.dumps({"id": 100 + poll_idx, "method": "Runtime.evaluate", "params": {"expression": "document.title", "returnByValue": True}}))
                     t_resp = json.loads(await ws.recv())
                     cur_title = t_resp.get("result", {}).get("result", {}).get("value", "")
-                    if cur_title and "Just a moment" not in cur_title:
+                    if cur_title and "Just a moment" not in cur_title and "gmvnonline.com" not in cur_title:
+                        dbg(f"[TRH {trh_id}] Turnstile challenge resolved at T+{poll_idx+1}s: '{cur_title}'")
                         break
 
                 await ws.send(json.dumps({
