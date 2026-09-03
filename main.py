@@ -83,7 +83,8 @@ LIVE_SCRAPE_CACHE = {}
 
 async def scrape_gmvn_live_room_tariff(trh_id: str, checkin_str: str, checkout_str: str):
     """
-    Connects to Chrome CDP (ws://127.0.0.1:9222) if active, or returns parsed live cache.
+    Connects to Chrome CDP (ws://127.0.0.1:9222).
+    Polls dynamically through Cloudflare 'Just a moment...' challenge until official GMVN card DOM is rendered.
     Formats dates to DD-MM-YYYY as expected by GMVN PHP backend.
     """
     try:
@@ -107,7 +108,16 @@ async def scrape_gmvn_live_room_tariff(trh_id: str, checkin_str: str, checkout_s
         async with websockets.connect(ws_url, max_size=10*1024*1024) as ws:
             await ws.send(json.dumps({"id": 1, "method": "Page.navigate", "params": {"url": url}}))
             await ws.recv()
-            await asyncio.sleep(2.0)
+            
+            # Dynamic polling: wait until Cloudflare 'Just a moment...' challenge resolves
+            for _ in range(12):
+                await asyncio.sleep(0.8)
+                await ws.send(json.dumps({"id": 100, "method": "Runtime.evaluate", "params": {"expression": "document.title", "returnByValue": True}}))
+                resp = json.loads(await ws.recv())
+                title = resp.get("result", {}).get("result", {}).get("value", "")
+                if title and "Just a moment" not in title:
+                    break
+            
             await ws.send(json.dumps({"id": 2, "method": "Runtime.evaluate", "params": {"expression": "document.documentElement.outerHTML", "returnByValue": True}}))
             resp = json.loads(await ws.recv())
             html = resp.get("result", {}).get("result", {}).get("value", "")
@@ -161,6 +171,10 @@ async def scrape_gmvn_live_room_tariff(trh_id: str, checkin_str: str, checkout_s
 
     return None
 
+def normalize_room_name(name: str) -> str:
+    """Helper to normalize room name strings for robust fuzzy comparison."""
+    return re.sub(r'[^a-zA-Z0-9]', '', name).lower()
+
 @app.get("/api/inventory-matrix")
 async def get_inventory_matrix(
     district: Optional[str] = None,
@@ -194,8 +208,8 @@ async def get_inventory_matrix(
     all_dates = date_list
 
     results = []
-    # If a specific property is searched, fetch live; otherwise serve master feed instantly
-    do_live_scrape = bool(city_search and len(props) <= 3)
+    # If filtered properties are 4 or fewer, or single search, perform live real-time scrape
+    do_live_scrape = len(props) <= 4
 
     for p in props:
         trh_id = p.get("trh_id", "")
@@ -246,7 +260,7 @@ async def live_sync(
     checkout: Optional[str] = "2026-09-30"
 ):
     """
-    Directly clears live cache, scrapes all currently filtered GMVN properties, and updates in-memory feed.
+    Directly clears live cache, scrapes filtered GMVN properties, and persists updates to master JSON.
     """
     global CACHED_DATA, LIVE_SCRAPE_CACHE
     LIVE_SCRAPE_CACHE.clear()
@@ -264,12 +278,21 @@ async def live_sync(
         rooms = await scrape_gmvn_live_room_tariff(trh_id, checkin, checkout)
         if rooms:
             scraped_count += 1
-            # Update memory store
+            # Update memory store using normalized room name matching
             for r in p.get("rooms", []):
+                norm_r = normalize_room_name(r["name"])
                 for lr in rooms:
-                    if lr["name"].lower() == r["name"].lower():
+                    norm_lr = normalize_room_name(lr["name"])
+                    if norm_r == norm_lr or norm_r in norm_lr or norm_lr in norm_r:
                         r["base_available"] = lr["available"]
                         r["tariff"] = lr["tariff"]
+
+    # Persist updated values to disk
+    try:
+        with open(DATA_FILE, "w", encoding="utf-8") as f:
+            json.dump(CACHED_DATA, f, indent=2)
+    except Exception as e:
+        print(f"Failed to persist live-synced master data: {e}")
 
     return {
         "success": True,
