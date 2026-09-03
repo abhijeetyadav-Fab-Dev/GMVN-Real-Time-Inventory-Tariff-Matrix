@@ -437,13 +437,11 @@ async def live_sync(
     concurrency_limit: Optional[int] = DEFAULT_CONCURRENCY_LIMIT
 ):
     """
-    Clears live cache, captures fresh session tokens, scrapes filtered GMVN properties with concurrency & pacing limits, and updates in-memory feed.
+    Captures fresh session tokens, scrapes filtered GMVN properties with concurrency & pacing limits, populates LIVE_SCRAPE_CACHE, and updates in-memory feed.
     """
     global CACHED_DATA, LIVE_SCRAPE_CACHE
     dbg(f"=== /api/live-sync called === district={district!r}, city_search={city_search!r}, "
         f"checkin={checkin}, checkout={checkout}, inter_delay_ms={inter_delay_ms}, concurrency={concurrency_limit}")
-    
-    LIVE_SCRAPE_CACHE.clear()
     
     # Pre-flight: Capture live session cookies
     await capture_session_cookies()
