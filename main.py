@@ -675,6 +675,13 @@ def get_favicon():
     raise HTTPException(status_code=404, detail="Favicon not found")
 
 
+@app.get("/gmvn_master_accommodations.json")
+def get_master_json():
+    json_path = os.path.join(os.path.dirname(__file__), "gmvn_master_accommodations.json")
+    if os.path.exists(json_path):
+        return FileResponse(json_path, media_type="application/json")
+    return CACHED_DATA
+
 @app.get("/", response_class=HTMLResponse)
 def serve_index():
     html_path = os.path.join(os.path.dirname(__file__), "index.html")
