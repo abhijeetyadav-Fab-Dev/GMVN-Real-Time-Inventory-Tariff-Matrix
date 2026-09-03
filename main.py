@@ -345,7 +345,22 @@ async def get_inventory_matrix(
         source_tag = "FALLBACK_STATIC"
         reason = "do_live_scrape=False for this request (broad search / district-only browse)."
 
-        if do_live_scrape:
+        # Format dates to match scrape cache key
+        try:
+            cin_d = datetime.datetime.strptime(checkin or "2026-09-25", "%Y-%m-%d").strftime("%d-%m-%Y")
+            cout_d = datetime.datetime.strptime(checkout or "2026-09-30", "%Y-%m-%d").strftime("%d-%m-%Y")
+        except Exception:
+            cin_d = checkin or "2026-09-25"
+            cout_d = checkout or "2026-09-30"
+
+        cache_key = f"{trh_id}_{cin_d}_{cout_d}"
+
+        # 1. Check if we already have freshly scraped live data in LIVE_SCRAPE_CACHE
+        if cache_key in LIVE_SCRAPE_CACHE:
+            live_rooms = LIVE_SCRAPE_CACHE[cache_key]
+            source_tag = "CACHED_LIVE"
+            reason = f"Served from LIVE_SCRAPE_CACHE (key={cache_key}, synced directly from GMVN portal)."
+        elif do_live_scrape:
             live_rooms, source_tag, reason = await scrape_gmvn_live_room_tariff(trh_id, checkin, checkout)
 
         dbg(f"[TRH {trh_id}] property='{p.get('name')}' -> source={source_tag} | reason: {reason}")
@@ -415,7 +430,7 @@ async def get_inventory_matrix(
 async def live_sync(
     district: Optional[str] = None,
     city_search: Optional[str] = None,
-    checkin: Optional[str] = "2026-09-02",
+    checkin: Optional[str] = "2026-09-25",
     checkout: Optional[str] = "2026-09-30",
     inter_delay_ms: Optional[int] = DEFAULT_INTER_REQUEST_DELAY_MS,
     retries: Optional[int] = DEFAULT_RATE_LIMIT_RETRIES,
