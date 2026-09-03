@@ -380,10 +380,50 @@
           </div>
           <div class="input-group">
             <label>&nbsp;</label>
+            <button type="button" class="btn-search" id="btn-capture-cookies" style="background: #475569; border-color: #334155;" onclick="captureLiveCookies()">
+              <i class="fa fa-key" id="cookie-icon"></i> <span id="cookie-btn-text">Capture Cookies</span>
+            </button>
+          </div>
+          <div class="input-group">
+            <label>&nbsp;</label>
             <button type="button" class="btn-sync" id="btn-live-sync" onclick="triggerLiveGmvnSync()">
               <span class="pulse-dot" id="sync-dot"></span>
               <span id="sync-btn-text">Live Sync</span>
             </button>
+          </div>
+        </div>
+
+        <!-- Humanization & Anti-Bot Bypass Controls Bar -->
+        <div style="display: flex; gap: 15px; margin-top: 10px; padding-top: 10px; border-top: 1px dashed #e2e8f0; align-items: center; flex-wrap: wrap; font-size: 0.78rem; color: #475569;">
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <i class="fa fa-shield" style="color: #0250a3;"></i> <strong>Anti-Bot Bypass:</strong>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span>Pacing Delay:</span>
+            <select id="cfg-delay" class="input-control" style="width: auto; padding: 3px 6px; font-size: 0.75rem;">
+              <option value="800">800ms (Fast)</option>
+              <option value="1200" selected>1200ms (Human-like)</option>
+              <option value="2000">2000ms (Stealth)</option>
+            </select>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span>Concurrency:</span>
+            <select id="cfg-concurrency" class="input-control" style="width: auto; padding: 3px 6px; font-size: 0.75rem;">
+              <option value="1">1 (Single Tab)</option>
+              <option value="2" selected>2 Parallel</option>
+              <option value="4">4 Parallel</option>
+            </select>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span>Retries:</span>
+            <select id="cfg-retries" class="input-control" style="width: auto; padding: 3px 6px; font-size: 0.75rem;">
+              <option value="2">2 Retries</option>
+              <option value="3" selected>3 Retries</option>
+              <option value="5">5 Retries</option>
+            </select>
+          </div>
+          <div id="cookie-status-badge" style="margin-left: auto; font-size: 0.75rem; color: #166534; background: #dcfce7; padding: 2px 8px; border-radius: 4px; border: 1px solid #bbf7d0;">
+            <i class="fa fa-circle" style="font-size: 0.6rem; color: #16a34a;"></i> Session Cookies Ready
           </div>
         </div>
       </div>
@@ -630,25 +670,77 @@
       XLSX.writeFile(wb, `GMVN_Inventory_Availability_${checkin}_to_${checkout}.xlsx`);
     }
 
+    async function captureLiveCookies() {
+      const btn = document.getElementById('btn-capture-cookies');
+      const icon = document.getElementById('cookie-icon');
+      const text = document.getElementById('cookie-btn-text');
+      const badge = document.getElementById('cookie-status-badge');
+
+      btn.disabled = true;
+      icon.className = 'fa fa-spinner fa-spin';
+      text.innerText = 'Capturing...';
+      badge.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Reading Chrome Session...';
+      badge.style.background = '#fef9c3';
+      badge.style.color = '#854d0e';
+      badge.style.borderColor = '#fde047';
+
+      try {
+        const res = await fetch('/api/capture-session-cookies', { method: 'POST' });
+        const data = await res.json();
+        
+        if (data.success && data.cookie_count > 0) {
+          icon.className = 'fa fa-check';
+          text.innerText = 'Captured!';
+          badge.innerHTML = `<i class="fa fa-circle" style="color: #16a34a; font-size: 0.6rem;"></i> ${data.cookie_count} Live Cookies Active`;
+          badge.style.background = '#dcfce7';
+          badge.style.color = '#166534';
+          badge.style.borderColor = '#bbf7d0';
+        } else {
+          icon.className = 'fa fa-key';
+          text.innerText = 'Capture Cookies';
+          badge.innerHTML = `<i class="fa fa-exclamation-triangle" style="color: #ca8a04;"></i> ${data.message || 'No Cookies'}`;
+          badge.style.background = '#fefce8';
+          badge.style.color = '#a16207';
+        }
+      } catch (err) {
+        icon.className = 'fa fa-key';
+        text.innerText = 'Capture Cookies';
+        badge.innerHTML = `<i class="fa fa-times-circle" style="color: #dc2626;"></i> Capture Offline`;
+        badge.style.background = '#fee2e2';
+        badge.style.color = '#991b1b';
+      } finally {
+        setTimeout(() => {
+          btn.disabled = false;
+          icon.className = 'fa fa-key';
+          text.innerText = 'Capture Cookies';
+        }, 2000);
+      }
+    }
+
     async function triggerLiveGmvnSync() {
       const btn = document.getElementById('btn-live-sync');
       const btnText = document.getElementById('sync-btn-text');
       const syncDot = document.getElementById('sync-dot');
       const syncIndicator = document.getElementById('sync-indicator');
+      const delay = document.getElementById('cfg-delay').value || 1200;
+      const concurrency = document.getElementById('cfg-concurrency').value || 2;
+      const retries = document.getElementById('cfg-retries').value || 3;
 
       btn.disabled = true;
       syncDot.style.display = 'none';
       btnText.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Syncing Portal...';
       
       syncIndicator.className = 'sync-status-bar syncing';
-      syncIndicator.innerHTML = '<i class="fa fa-refresh fa-spin"></i> Fetching Real-time GMVN Tariffs & Rooms...';
+      syncIndicator.innerHTML = '<i class="fa fa-refresh fa-spin"></i> Human-Paced Scraping Active...';
 
       try {
         const district = document.getElementById('district-select').value;
         const search = document.getElementById('city-search').value;
         const checkin = document.getElementById('checkin-date').value;
         const checkout = document.getElementById('checkout-date').value;
-        const res = await fetch(`/api/live-sync?district=${encodeURIComponent(district)}&city_search=${encodeURIComponent(search)}&checkin=${checkin}&checkout=${checkout}`, { method: 'POST' });
+        
+        const syncUrl = `/api/live-sync?district=${encodeURIComponent(district)}&city_search=${encodeURIComponent(search)}&checkin=${checkin}&checkout=${checkout}&inter_delay_ms=${delay}&concurrency_limit=${concurrency}&retries=${retries}`;
+        const res = await fetch(syncUrl, { method: 'POST' });
         await fetchMatrix();
         
         btnText.innerHTML = '<i class="fa fa-check"></i> Synced!';
