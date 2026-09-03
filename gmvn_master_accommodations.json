@@ -25,7 +25,7 @@
           "tariff": 6600,
           "plan": "CP Plan (Bed Tea & Breakfast) for 2 Person",
           "contact": "",
-          "base_available": 5,
+          "base_available": 0,
           "daily_inventory": {
             "2026-09-01": 5,
             "2026-09-02": 5,
@@ -67,7 +67,7 @@
           "tariff": 7500,
           "plan": "CP Plan (Bed Tea & Breakfast) for 2 Person",
           "contact": "",
-          "base_available": 6,
+          "base_available": 0,
           "daily_inventory": {
             "2026-09-01": 6,
             "2026-09-02": 6,
@@ -88,7 +88,7 @@
           "tariff": 7200,
           "plan": "CP Plan (Bed Tea & Breakfast) for 2 Person",
           "contact": "",
-          "base_available": 6,
+          "base_available": 1,
           "daily_inventory": {
             "2026-09-01": 6,
             "2026-09-02": 6,
@@ -298,10 +298,10 @@
         {
           "name": "Deluxe Room",
           "code": "DELUX",
-          "tariff": 4200,
+          "tariff": 5500,
           "plan": "CP Plan (Bed Tea & Breakfast) for 2 Person",
           "contact": "",
-          "base_available": 10,
+          "base_available": 3,
           "daily_inventory": {
             "2026-09-01": 10,
             "2026-09-02": 10,
@@ -322,7 +322,7 @@
           "tariff": 2900,
           "plan": "CP Plan (Bed Tea & Breakfast) for 2 Person",
           "contact": "",
-          "base_available": 4,
+          "base_available": 3,
           "daily_inventory": {
             "2026-09-01": 4,
             "2026-09-02": 4,
@@ -343,7 +343,7 @@
           "tariff": 2200,
           "plan": "CP Plan (Bed Tea & Breakfast) for 2 Person",
           "contact": "",
-          "base_available": 4,
+          "base_available": 3,
           "daily_inventory": {
             "2026-09-01": 4,
             "2026-09-02": 4,
@@ -364,7 +364,7 @@
           "tariff": 3600,
           "plan": "CP Plan (Bed Tea & Breakfast) for 2 Person",
           "contact": "",
-          "base_available": 8,
+          "base_available": 5,
           "daily_inventory": {
             "2026-09-01": 8,
             "2026-09-02": 8,
@@ -417,7 +417,7 @@
           "tariff": 4500,
           "plan": "CP Plan (Bed Tea & Breakfast) for 2 Person",
           "contact": "",
-          "base_available": 4,
+          "base_available": 0,
           "daily_inventory": {
             "2026-09-01": 4,
             "2026-09-02": 4,
@@ -435,10 +435,10 @@
         {
           "name": "Super Deluxe Room",
           "code": "SUPER",
-          "tariff": 5500,
+          "tariff": 5800,
           "plan": "CP Plan (Bed Tea & Breakfast) for 2 Person",
           "contact": "",
-          "base_available": 6,
+          "base_available": 0,
           "daily_inventory": {
             "2026-09-01": 6,
             "2026-09-02": 6,
@@ -467,10 +467,10 @@
         {
           "name": "Deluxe Room",
           "code": "DELUX",
-          "tariff": 5800,
+          "tariff": 4500,
           "plan": "MAP Plan (Bed Tea, Breakfast & Dinner) for 2 Person",
           "contact": "",
-          "base_available": 7,
+          "base_available": 0,
           "daily_inventory": {
             "2026-09-01": 7,
             "2026-09-02": 7,
@@ -491,7 +491,7 @@
           "tariff": 4500,
           "plan": "MAP Plan (Bed Tea, Breakfast & Dinner) for 2 Person",
           "contact": "",
-          "base_available": 6,
+          "base_available": 0,
           "daily_inventory": {
             "2026-09-01": 6,
             "2026-09-02": 6,
@@ -520,10 +520,10 @@
         {
           "name": "Dormitory",
           "code": "DORMI",
-          "tariff": 450,
+          "tariff": 1500,
           "plan": "CP Plan (Bed Tea & Breakfast)",
           "contact": "",
-          "base_available": 10,
+          "base_available": 0,
           "daily_inventory": {
             "2026-09-01": 10,
             "2026-09-02": 10,
@@ -555,7 +555,7 @@
           "tariff": 1500,
           "plan": "CP Plan (Bed Tea & Breakfast)",
           "contact": "",
-          "base_available": 10,
+          "base_available": 0,
           "daily_inventory": {
             "2026-09-01": 10,
             "2026-09-02": 10,
@@ -576,7 +576,7 @@
           "tariff": 7875,
           "plan": "CP Plan (Bed Tea & Breakfast)",
           "contact": "",
-          "base_available": 1,
+          "base_available": 0,
           "daily_inventory": {
             "2026-09-01": 1,
             "2026-09-02": 1,
@@ -608,7 +608,7 @@
           "tariff": 1200,
           "plan": "CP Plan (Bed Tea & Breakfast)",
           "contact": "",
-          "base_available": 10,
+          "base_available": 0,
           "daily_inventory": {
             "2026-09-01": 10,
             "2026-09-02": 10,
@@ -637,10 +637,10 @@
         {
           "name": "Deluxe Room",
           "code": "DELUX",
-          "tariff": 2800,
+          "tariff": 1500,
           "plan": "CP Plan (Bed Tea & Breakfast)",
           "contact": "",
-          "base_available": 8,
+          "base_available": 0,
           "daily_inventory": {
             "2026-09-01": 8,
             "2026-09-02": 8,
@@ -661,7 +661,7 @@
           "tariff": 500,
           "plan": "CP Plan (Bed Tea & Breakfast)",
           "contact": "",
-          "base_available": 8,
+          "base_available": 0,
           "daily_inventory": {
             "2026-09-01": 8,
             "2026-09-02": 8,
@@ -682,7 +682,7 @@
           "tariff": 1100,
           "plan": "CP Plan (Bed Tea & Breakfast)",
           "contact": "",
-          "base_available": 10,
+          "base_available": 0,
           "daily_inventory": {
             "2026-09-01": 10,
             "2026-09-02": 10,
@@ -724,7 +724,7 @@
           "tariff": 1500,
           "plan": "CP Plan (Bed Tea & Breakfast)",
           "contact": "",
-          "base_available": 6,
+          "base_available": 0,
           "daily_inventory": {
             "2026-09-01": 6,
             "2026-09-02": 6,
@@ -756,7 +756,7 @@
           "tariff": 2500,
           "plan": "CP Plan (Bed Tea & Breakfast)",
           "contact": "",
-          "base_available": 6,
+          "base_available": 0,
           "daily_inventory": {
             "2026-09-01": 6,
             "2026-09-02": 6,
@@ -785,10 +785,10 @@
         {
           "name": "Deluxe Room",
           "code": "DELUX",
-          "tariff": 2600,
+          "tariff": 2500,
           "plan": "CP Plan (Bed Tea & Breakfast)",
           "contact": "",
-          "base_available": 3,
+          "base_available": 0,
           "daily_inventory": {
             "2026-09-01": 3,
             "2026-09-02": 3,
@@ -827,10 +827,10 @@
         {
           "name": "Semi Deluxe Room",
           "code": "SEMI-",
-          "tariff": 1800,
+          "tariff": 2500,
           "plan": "CP Plan (Bed Tea & Breakfast)",
           "contact": "",
-          "base_available": 9,
+          "base_available": 0,
           "daily_inventory": {
             "2026-09-01": 9,
             "2026-09-02": 9,
@@ -859,7 +859,7 @@
         {
           "name": "Deluxe Room",
           "code": "DELUX",
-          "tariff": 3500,
+          "tariff": 4800,
           "plan": "CP Plan (Bed Tea & Breakfast)",
           "contact": "",
           "base_available": 8,
@@ -936,7 +936,7 @@
           "tariff": 2000,
           "plan": "CP Plan (Bed Tea & Breakfast)",
           "contact": "",
-          "base_available": 2,
+          "base_available": 0,
           "daily_inventory": {
             "2026-09-01": 2,
             "2026-09-02": 2,
@@ -975,10 +975,10 @@
         {
           "name": "Family Deluxe Room",
           "code": "FAMIL",
-          "tariff": 3000,
+          "tariff": 2000,
           "plan": "CP Plan (Bed Tea & Breakfast)",
           "contact": "",
-          "base_available": 2,
+          "base_available": 0,
           "daily_inventory": {
             "2026-09-01": 2,
             "2026-09-02": 2,
@@ -996,10 +996,10 @@
         {
           "name": "Super Deluxe Hut",
           "code": "SUPER",
-          "tariff": 6200,
+          "tariff": 3200,
           "plan": "CP Plan (Bed Tea & Breakfast)",
           "contact": "",
-          "base_available": 4,
+          "base_available": 0,
           "daily_inventory": {
             "2026-09-01": 4,
             "2026-09-02": 4,
@@ -1028,10 +1028,10 @@
         {
           "name": "Deluxe Room",
           "code": "DELUX",
-          "tariff": 4200,
+          "tariff": 2800,
           "plan": "CP Plan (Bed Tea & Breakfast) for 2 Person",
           "contact": "",
-          "base_available": 10,
+          "base_available": 0,
           "daily_inventory": {
             "2026-09-01": 10,
             "2026-09-02": 10,
@@ -1091,10 +1091,10 @@
         {
           "name": "Semi Deluxe Room",
           "code": "SEMI-",
-          "tariff": 3600,
+          "tariff": 2800,
           "plan": "CP Plan (Bed Tea & Breakfast) for 2 Person",
           "contact": "",
-          "base_available": 8,
+          "base_available": 0,
           "daily_inventory": {
             "2026-09-01": 8,
             "2026-09-02": 8,
@@ -1112,10 +1112,10 @@
         {
           "name": "Super Deluxe Room",
           "code": "SUPER",
-          "tariff": 5500,
+          "tariff": 2800,
           "plan": "CP Plan (Bed Tea & Breakfast) for 2 Person",
           "contact": "",
-          "base_available": 3,
+          "base_available": 0,
           "daily_inventory": {
             "2026-09-01": 3,
             "2026-09-02": 3,

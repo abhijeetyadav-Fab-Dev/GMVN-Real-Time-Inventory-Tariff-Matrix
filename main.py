@@ -122,7 +122,7 @@ LIVE_SCRAPE_CACHE = {}
 # Global Session Cookie Storage & Scraping Config
 ACTIVE_SESSION_COOKIES = []
 DEFAULT_INTER_REQUEST_DELAY_MS = 1200
-DEFAULT_CONCURRENCY_LIMIT = 1
+DEFAULT_CONCURRENCY_LIMIT = 2
 DEFAULT_RATE_LIMIT_RETRIES = 3
 
 @app.post("/api/capture-session-cookies")
@@ -160,6 +160,45 @@ async def capture_session_cookies():
             "error": str(e),
             "message": "Could not connect to Chrome CDP on port 9222."
         }
+
+def default_checkin_checkout():
+    """
+    Computes sensible default check-in/check-out dates relative to "today"
+    (a week out, 5-night stay) instead of a hardcoded date that silently
+    goes stale (and, once in the past, breaks live scraping against the
+    GMVN portal, which returns 0 rooms for past-dated searches).
+    """
+    today = datetime.date.today()
+    cin = today + datetime.timedelta(days=7)
+    cout = cin + datetime.timedelta(days=5)
+    return cin.strftime("%Y-%m-%d"), cout.strftime("%Y-%m-%d")
+
+
+def normalize_room_name(name: str) -> str:
+    """
+    Normalizes a room name for fuzzy matching between the master dataset's
+    room list and room names scraped from the live GMVN portal (which may
+    differ in casing, punctuation, or extra whitespace).
+    """
+    if not name:
+        return ""
+    n = name.lower().strip()
+    n = re.sub(r"[^a-z0-9\s]", "", n)   # strip punctuation
+    n = re.sub(r"\s+", " ", n).strip()  # collapse whitespace
+    return n
+
+
+def get_cached_live_rooms(trh_id: str, checkin_str: str, checkout_str: str):
+    """Cache-only lookup — never triggers a network scrape. Returns rooms list or None."""
+    try:
+        cin_d = datetime.datetime.strptime(checkin_str, "%Y-%m-%d").strftime("%d-%m-%Y")
+        cout_d = datetime.datetime.strptime(checkout_str, "%Y-%m-%d").strftime("%d-%m-%Y")
+    except Exception:
+        cin_d = checkin_str
+        cout_d = checkout_str
+    cache_key = f"{trh_id}_{cin_d}_{cout_d}"
+    return LIVE_SCRAPE_CACHE.get(cache_key)
+
 
 async def scrape_gmvn_live_room_tariff(
     trh_id: str,
@@ -213,14 +252,13 @@ async def scrape_gmvn_live_room_tariff(
                 await ws.send(json.dumps({"id": 2, "method": "Page.navigate", "params": {"url": target_url}}))
                 await ws.recv()
 
-                # Dynamic polling to resolve Cloudflare Turnstile challenge (up to 15s)
-                for poll_idx in range(15):
-                    await asyncio.sleep(1.0)
-                    await ws.send(json.dumps({"id": 100 + poll_idx, "method": "Runtime.evaluate", "params": {"expression": "document.title", "returnByValue": True}}))
+                # Dynamic polling to resolve Cloudflare Turnstile challenge
+                for _ in range(12):
+                    await asyncio.sleep(0.8)
+                    await ws.send(json.dumps({"id": 100, "method": "Runtime.evaluate", "params": {"expression": "document.title", "returnByValue": True}}))
                     t_resp = json.loads(await ws.recv())
                     cur_title = t_resp.get("result", {}).get("result", {}).get("value", "")
-                    if cur_title and "Just a moment" not in cur_title and "gmvnonline.com" not in cur_title:
-                        dbg(f"[TRH {trh_id}] Turnstile challenge resolved at T+{poll_idx+1}s: '{cur_title}'")
+                    if cur_title and "Just a moment" not in cur_title:
                         break
 
                 await ws.send(json.dumps({
@@ -288,20 +326,19 @@ async def scrape_gmvn_live_room_tariff(
 
     return None, "FALLBACK_STATIC", "HTML fetched but 0 rooms matched or request timed out."
 
-def normalize_room_name(name: str) -> str:
-    """Helper to normalize room name strings for robust comparison."""
-    if not name:
-        return ""
-    return re.sub(r'[^a-zA-Z0-9]', '', str(name)).lower()
 
 @app.get("/api/inventory-matrix")
 async def get_inventory_matrix(
     district: Optional[str] = None,
     city_search: Optional[str] = None,
-    checkin: Optional[str] = "2026-09-25",
-    checkout: Optional[str] = "2026-09-30"
+    checkin: Optional[str] = None,
+    checkout: Optional[str] = None
 ):
     global CACHED_DATA
+    if not checkin or not checkout:
+        _def_cin, _def_cout = default_checkin_checkout()
+        checkin = checkin or _def_cin
+        checkout = checkout or _def_cout
     props = CACHED_DATA.get("properties", [])
     dbg(f"=== /api/inventory-matrix called === district={district!r}, city_search={city_search!r}, "
         f"checkin={checkin}, checkout={checkout}")
@@ -345,23 +382,17 @@ async def get_inventory_matrix(
         source_tag = "FALLBACK_STATIC"
         reason = "do_live_scrape=False for this request (broad search / district-only browse)."
 
-        # Format dates to match scrape cache key
-        try:
-            cin_d = datetime.datetime.strptime(checkin or "2026-09-25", "%Y-%m-%d").strftime("%d-%m-%Y")
-            cout_d = datetime.datetime.strptime(checkout or "2026-09-30", "%Y-%m-%d").strftime("%d-%m-%Y")
-        except Exception:
-            cin_d = checkin or "2026-09-25"
-            cout_d = checkout or "2026-09-30"
-
-        cache_key = f"{trh_id}_{cin_d}_{cout_d}"
-
-        # 1. Check if we already have freshly scraped live data in LIVE_SCRAPE_CACHE
-        if cache_key in LIVE_SCRAPE_CACHE:
-            live_rooms = LIVE_SCRAPE_CACHE[cache_key]
-            source_tag = "CACHED_LIVE"
-            reason = f"Served from LIVE_SCRAPE_CACHE (key={cache_key}, synced directly from GMVN portal)."
-        elif do_live_scrape:
+        if do_live_scrape:
             live_rooms, source_tag, reason = await scrape_gmvn_live_room_tariff(trh_id, checkin, checkout)
+        else:
+            # Even when we won't trigger a fresh live scrape (broad browse),
+            # still serve already-cached data from a prior /api/live-sync run
+            # instead of always falling back to static placeholder rows.
+            cached_rooms = get_cached_live_rooms(trh_id, checkin, checkout)
+            if cached_rooms:
+                live_rooms = cached_rooms
+                source_tag = "CACHED_LIVE"
+                reason = "Served from LIVE_SCRAPE_CACHE (populated by a prior /api/live-sync run); do_live_scrape=False so no fresh scrape was attempted."
 
         dbg(f"[TRH {trh_id}] property='{p.get('name')}' -> source={source_tag} | reason: {reason}")
 
@@ -430,18 +461,24 @@ async def get_inventory_matrix(
 async def live_sync(
     district: Optional[str] = None,
     city_search: Optional[str] = None,
-    checkin: Optional[str] = "2026-09-25",
-    checkout: Optional[str] = "2026-09-30",
+    checkin: Optional[str] = None,
+    checkout: Optional[str] = None,
     inter_delay_ms: Optional[int] = DEFAULT_INTER_REQUEST_DELAY_MS,
     retries: Optional[int] = DEFAULT_RATE_LIMIT_RETRIES,
     concurrency_limit: Optional[int] = DEFAULT_CONCURRENCY_LIMIT
 ):
     """
-    Captures fresh session tokens, scrapes filtered GMVN properties with concurrency & pacing limits, populates LIVE_SCRAPE_CACHE, and updates in-memory feed.
+    Clears live cache, captures fresh session tokens, scrapes filtered GMVN properties with concurrency & pacing limits, and updates in-memory feed.
     """
     global CACHED_DATA, LIVE_SCRAPE_CACHE
+    if not checkin or not checkout:
+        _def_cin, _def_cout = default_checkin_checkout()
+        checkin = checkin or _def_cin
+        checkout = checkout or _def_cout
     dbg(f"=== /api/live-sync called === district={district!r}, city_search={city_search!r}, "
         f"checkin={checkin}, checkout={checkout}, inter_delay_ms={inter_delay_ms}, concurrency={concurrency_limit}")
+    
+    LIVE_SCRAPE_CACHE.clear()
     
     # Pre-flight: Capture live session cookies
     await capture_session_cookies()
@@ -513,9 +550,13 @@ async def live_sync(
 async def export_excel(
     district: Optional[str] = None,
     city_search: Optional[str] = None,
-    checkin: Optional[str] = "2026-09-25",
-    checkout: Optional[str] = "2026-09-30"
+    checkin: Optional[str] = None,
+    checkout: Optional[str] = None
 ):
+    if not checkin or not checkout:
+        _def_cin, _def_cout = default_checkin_checkout()
+        checkin = checkin or _def_cin
+        checkout = checkout or _def_cout
     matrix_data = await get_inventory_matrix(district, city_search, checkin, checkout)
     dates = matrix_data.get("dates", [])
     props = matrix_data.get("properties", [])
@@ -694,6 +735,7 @@ def get_master_json():
     if os.path.exists(json_path):
         return FileResponse(json_path, media_type="application/json")
     return CACHED_DATA
+
 
 @app.get("/", response_class=HTMLResponse)
 def serve_index():
