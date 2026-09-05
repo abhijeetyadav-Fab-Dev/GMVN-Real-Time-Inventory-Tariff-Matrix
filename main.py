@@ -3,7 +3,10 @@ import json
 import logging
 import datetime
 import io
-from fastapi import FastAPI, HTTPException
+import subprocess
+import shutil
+import time
+from fastapi import FastAPI, HTTPException, Header, Depends
 from fastapi.responses import HTMLResponse, StreamingResponse, FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Optional
@@ -116,7 +119,157 @@ def generate_availability_for_dates(rooms, start_date_str, end_date_str, prop_se
 
 # Master in-memory data cache
 CACHED_DATA = load_data()
-LIVE_SCRAPE_CACHE = {}
+
+# ---------------------------------------------------------------------------
+# LIVE_SCRAPE_CACHE persistence + TTL
+# ---------------------------------------------------------------------------
+# Cache entries are stored as: {cache_key: {"rooms": [...], "scraped_at": <iso8601>}}
+# so every consumer knows exactly how old a "live" result actually is, and
+# stale entries can be treated as a miss instead of served forever.
+LIVE_CACHE_FILE = os.path.join(os.path.dirname(__file__), "live_scrape_cache.json")
+LIVE_CACHE_TTL_SECONDS = int(os.environ.get("GMVN_CACHE_TTL_SECONDS", "3600"))  # 1 hour default
+
+
+def _load_live_cache_from_disk():
+    if not os.path.exists(LIVE_CACHE_FILE):
+        return {}
+    try:
+        with open(LIVE_CACHE_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            dbg(f"Loaded {len(data)} entries from persisted LIVE_SCRAPE_CACHE at {LIVE_CACHE_FILE}")
+            return data
+    except Exception as e:
+        dbg(f"Failed to load persisted LIVE_SCRAPE_CACHE: {e}")
+        return {}
+
+
+def _save_live_cache_to_disk():
+    try:
+        with open(LIVE_CACHE_FILE, "w", encoding="utf-8") as f:
+            json.dump(LIVE_SCRAPE_CACHE, f, indent=2)
+    except Exception as e:
+        dbg(f"Failed to persist LIVE_SCRAPE_CACHE to disk: {e}")
+
+
+LIVE_SCRAPE_CACHE = _load_live_cache_from_disk()
+
+
+def _cache_entry_age_seconds(entry) -> float:
+    try:
+        scraped_at = datetime.datetime.fromisoformat(entry["scraped_at"])
+        return (datetime.datetime.utcnow() - scraped_at).total_seconds()
+    except Exception:
+        return float("inf")  # malformed/unknown age -> treat as expired
+
+
+def _cache_get_fresh(cache_key: str):
+    """Returns the rooms list for cache_key only if present AND not expired; else None."""
+    entry = LIVE_SCRAPE_CACHE.get(cache_key)
+    if not entry:
+        return None
+    age = _cache_entry_age_seconds(entry)
+    if age > LIVE_CACHE_TTL_SECONDS:
+        dbg(f"Cache entry for key='{cache_key}' is stale (age={age:.0f}s > TTL={LIVE_CACHE_TTL_SECONDS}s) — treating as miss.")
+        return None
+    return entry["rooms"]
+
+
+def _cache_set(cache_key: str, rooms):
+    LIVE_SCRAPE_CACHE[cache_key] = {
+        "rooms": rooms,
+        "scraped_at": datetime.datetime.utcnow().isoformat()
+    }
+    _save_live_cache_to_disk()
+
+
+# ---------------------------------------------------------------------------
+# Simple API-key protection for state-changing endpoints
+# ---------------------------------------------------------------------------
+# Set GMVN_API_KEY in your environment to require a matching X-API-Key header
+# on /api/live-sync, /api/live-sync/retry-failed, and /api/capture-session-cookies.
+# If GMVN_API_KEY is unset, these endpoints remain open (dev-friendly default).
+API_KEY = os.environ.get("GMVN_API_KEY", "").strip()
+
+
+def require_api_key(x_api_key: Optional[str] = Header(default=None)):
+    if API_KEY and x_api_key != API_KEY:
+        raise HTTPException(status_code=401, detail="Missing or invalid X-API-Key header.")
+    return True
+
+
+# ---------------------------------------------------------------------------
+# Chrome CDP self-healing: try to relaunch Chrome with remote debugging if
+# the bridge is unreachable, instead of silently falling back every time.
+# ---------------------------------------------------------------------------
+CHROME_DEBUG_PORT = 9222
+CHROME_PATH = os.environ.get("GMVN_CHROME_PATH", "").strip() or None
+_DEFAULT_CHROME_CANDIDATES = [
+    r"C:\Program Files\Google\Chrome\Application\chrome.exe",
+    r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe",
+    "/usr/bin/google-chrome",
+    "/usr/bin/chromium-browser",
+]
+
+
+def _find_chrome_binary() -> Optional[str]:
+    if CHROME_PATH and os.path.exists(CHROME_PATH):
+        return CHROME_PATH
+    for candidate in _DEFAULT_CHROME_CANDIDATES:
+        if os.path.exists(candidate):
+            return candidate
+    found = shutil.which("chrome") or shutil.which("google-chrome") or shutil.which("chromium-browser")
+    return found
+
+
+def _cdp_is_reachable(timeout=1.5) -> bool:
+    try:
+        req = urllib.request.Request(f"http://127.0.0.1:{CHROME_DEBUG_PORT}/json", headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            json.loads(r.read())
+        return True
+    except Exception:
+        return False
+
+
+def try_relaunch_chrome_debug() -> dict:
+    """
+    Best-effort attempt to relaunch Chrome with the remote-debugging port open
+    when the CDP bridge is unreachable. Returns a dict describing what happened
+    so callers can log/report it rather than silently failing.
+    """
+    if _cdp_is_reachable():
+        return {"attempted": False, "reason": "CDP already reachable, no relaunch needed."}
+
+    chrome_bin = _find_chrome_binary()
+    if not chrome_bin:
+        return {
+            "attempted": False,
+            "reason": "No Chrome binary found (set GMVN_CHROME_PATH env var to its full path)."
+        }
+
+    try:
+        subprocess.Popen(
+            [chrome_bin, f"--remote-debugging-port={CHROME_DEBUG_PORT}", "--no-first-run", "--new-window", "about:blank"],
+            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+        )
+        dbg(f"Attempted to relaunch Chrome with CDP debug port from: {chrome_bin}")
+    except Exception as e:
+        return {"attempted": True, "reason": f"Launch failed: {e}", "chrome_path": chrome_bin, "reachable_after": False}
+
+    # Give Chrome a few seconds to start up before checking again.
+    for _ in range(6):
+        time.sleep(1)
+        if _cdp_is_reachable():
+            return {"attempted": True, "reason": "Relaunched successfully.", "chrome_path": chrome_bin, "reachable_after": True}
+
+    return {"attempted": True, "reason": "Launched but CDP still unreachable after 6s.", "chrome_path": chrome_bin, "reachable_after": False}
+
+
+# ---------------------------------------------------------------------------
+# Last live-sync failure tracking (powers /api/live-sync/retry-failed)
+# ---------------------------------------------------------------------------
+LAST_SYNC_FAILED_TRH_IDS = []
+LAST_SYNC_PARAMS = {}
 
 
 # Global Session Cookie Storage & Scraping Config
@@ -126,12 +279,16 @@ DEFAULT_CONCURRENCY_LIMIT = 2
 DEFAULT_RATE_LIMIT_RETRIES = 3
 
 @app.post("/api/capture-session-cookies")
-async def capture_session_cookies():
+async def capture_session_cookies(_auth: bool = Depends(require_api_key)):
     """
     Connects to Chrome CDP, extracts active cf_clearance, PHPSESSID, and security tokens from GMVN.
     """
     global ACTIVE_SESSION_COOKIES
     try:
+        if not _cdp_is_reachable():
+            relaunch_result = try_relaunch_chrome_debug()
+            dbg(f"CDP unreachable before capturing cookies — relaunch attempt result: {relaunch_result}")
+
         req = urllib.request.Request("http://127.0.0.1:9222/json", headers={"User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(req, timeout=1.5) as r:
             tabs = json.loads(r.read())
@@ -189,7 +346,7 @@ def normalize_room_name(name: str) -> str:
 
 
 def get_cached_live_rooms(trh_id: str, checkin_str: str, checkout_str: str):
-    """Cache-only lookup — never triggers a network scrape. Returns rooms list or None."""
+    """Cache-only lookup — never triggers a network scrape. Returns rooms list or None (also None if the entry has expired past the TTL)."""
     try:
         cin_d = datetime.datetime.strptime(checkin_str, "%Y-%m-%d").strftime("%d-%m-%Y")
         cout_d = datetime.datetime.strptime(checkout_str, "%Y-%m-%d").strftime("%d-%m-%Y")
@@ -197,7 +354,7 @@ def get_cached_live_rooms(trh_id: str, checkin_str: str, checkout_str: str):
         cin_d = checkin_str
         cout_d = checkout_str
     cache_key = f"{trh_id}_{cin_d}_{cout_d}"
-    return LIVE_SCRAPE_CACHE.get(cache_key)
+    return _cache_get_fresh(cache_key)
 
 
 async def scrape_gmvn_live_room_tariff(
@@ -219,9 +376,10 @@ async def scrape_gmvn_live_room_tariff(
         cout_d = checkout_str
 
     cache_key = f"{trh_id}_{cin_d}_{cout_d}"
-    if cache_key in LIVE_SCRAPE_CACHE:
+    _fresh = _cache_get_fresh(cache_key)
+    if _fresh is not None:
         dbg(f"[TRH {trh_id}] Cache HIT for key '{cache_key}' — returning cached live data.")
-        return LIVE_SCRAPE_CACHE[cache_key], "CACHED_LIVE", f"Served from LIVE_SCRAPE_CACHE, key={cache_key}"
+        return _fresh, "CACHED_LIVE", f"Served from LIVE_SCRAPE_CACHE, key={cache_key}"
 
     # Human-like inter-request pacing delay
     if inter_delay_ms > 0:
@@ -229,6 +387,12 @@ async def scrape_gmvn_live_room_tariff(
 
     for attempt in range(retries):
         try:
+            if not _cdp_is_reachable():
+                relaunch_result = try_relaunch_chrome_debug()
+                dbg(f"[TRH {trh_id}] CDP unreachable before attempt {attempt+1} — relaunch attempt result: {relaunch_result}")
+                if not relaunch_result.get("reachable_after") and not _cdp_is_reachable():
+                    return None, "FALLBACK_STATIC", f"CDP endpoint unreachable at 127.0.0.1:9222 and relaunch attempt did not restore it ({relaunch_result.get('reason')})."
+
             req = urllib.request.Request("http://127.0.0.1:9222/json", headers={"User-Agent": "Mozilla/5.0"})
             with urllib.request.urlopen(req, timeout=1.5) as r:
                 tabs = json.loads(r.read())
@@ -316,7 +480,7 @@ async def scrape_gmvn_live_room_tariff(
                     })
 
                 if rooms:
-                    LIVE_SCRAPE_CACHE[cache_key] = rooms
+                    _cache_set(cache_key, rooms)
                     dbg(f"[TRH {trh_id}] SUCCESS — scraped {len(rooms)} real room rows from live portal.")
                     return rooms, "LIVE_SCRAPE", f"Successfully parsed {len(rooms)} rooms from live HTML."
 
@@ -451,50 +615,28 @@ async def get_inventory_matrix(
             "live_scrape_count": stats["live_scrape"],
             "cached_live_count": stats["cached_live"],
             "fallback_static_count": stats["fallback_static"],
+            "date_granularity_warning": "For LIVE_SCRAPE / CACHED_LIVE rooms, a single scraped availability/tariff "
+                "snapshot (for the requested checkin/checkout pair) is repeated across every date in the response's "
+                "'dates' array. This is NOT true per-day granularity — GMVN's portal returns one snapshot per "
+                "trhID+date-range request, not a day-by-day calendar. FALLBACK_STATIC rooms use whatever "
+                "daily_inventory values exist in the master dataset, which may or may not vary by day.",
+            "cache_ttl_seconds": LIVE_CACHE_TTL_SECONDS,
             "note": "do_live_scrape is only True when city_search is set AND the filtered result set is <= 3 properties. "
-                    "Otherwise every property below is FALLBACK_STATIC regardless of the page title."
+                    "Otherwise every property below is FALLBACK_STATIC unless already present (and unexpired) in LIVE_SCRAPE_CACHE."
         }
     }
 
 
-@app.post("/api/live-sync")
-async def live_sync(
-    district: Optional[str] = None,
-    city_search: Optional[str] = None,
-    checkin: Optional[str] = None,
-    checkout: Optional[str] = None,
-    inter_delay_ms: Optional[int] = DEFAULT_INTER_REQUEST_DELAY_MS,
-    retries: Optional[int] = DEFAULT_RATE_LIMIT_RETRIES,
-    concurrency_limit: Optional[int] = DEFAULT_CONCURRENCY_LIMIT
-):
+async def _run_live_sync_for_properties(props, checkin, checkout, inter_delay_ms, retries, concurrency_limit):
     """
-    Clears live cache, captures fresh session tokens, scrapes filtered GMVN properties with concurrency & pacing limits, and updates in-memory feed.
+    Shared scraping-loop core used by both /api/live-sync (full batch) and
+    /api/live-sync/retry-failed (just the properties that failed last time).
+    Returns (scraped_count, failed_count, failed_trh_ids, per_property_log).
     """
-    global CACHED_DATA, LIVE_SCRAPE_CACHE
-    if not checkin or not checkout:
-        _def_cin, _def_cout = default_checkin_checkout()
-        checkin = checkin or _def_cin
-        checkout = checkout or _def_cout
-    dbg(f"=== /api/live-sync called === district={district!r}, city_search={city_search!r}, "
-        f"checkin={checkin}, checkout={checkout}, inter_delay_ms={inter_delay_ms}, concurrency={concurrency_limit}")
-    
-    LIVE_SCRAPE_CACHE.clear()
-    
-    # Pre-flight: Capture live session cookies
-    await capture_session_cookies()
-
-    props = CACHED_DATA.get("properties", [])
-    if district and district.lower() != "all":
-        props = [p for p in props if p["district"].lower() == district.lower()]
-    if city_search:
-        s = city_search.lower().strip()
-        props = [p for p in props if s in p["name"].lower() or s in p["city"].lower() or s in p["district"].lower()]
-
-    dbg(f"live_sync will scrape {len(props)} properties with concurrency={concurrency_limit} and delay={inter_delay_ms}ms")
-
     semaphore = asyncio.Semaphore(max(1, min(10, concurrency_limit or 2)))
     scraped_count = 0
     failed_count = 0
+    failed_trh_ids = []
     per_property_log = []
 
     async def scrape_property_worker(p):
@@ -518,18 +660,67 @@ async def live_sync(
                             r["tariff"] = lr["tariff"]
             else:
                 failed_count += 1
+                failed_trh_ids.append(trh_id)
 
-    # Run scraping workers
     tasks = [scrape_property_worker(p) for p in props]
     if tasks:
         await asyncio.gather(*tasks)
 
-    # Persist updated master state to disk
     try:
         with open(DATA_FILE, "w", encoding="utf-8") as f:
             json.dump(CACHED_DATA, f, indent=2)
     except Exception as e:
         dbg(f"Failed to persist live-synced master data: {e}")
+
+    return scraped_count, failed_count, failed_trh_ids, per_property_log
+
+
+@app.post("/api/live-sync")
+async def live_sync(
+    district: Optional[str] = None,
+    city_search: Optional[str] = None,
+    checkin: Optional[str] = None,
+    checkout: Optional[str] = None,
+    inter_delay_ms: Optional[int] = DEFAULT_INTER_REQUEST_DELAY_MS,
+    retries: Optional[int] = DEFAULT_RATE_LIMIT_RETRIES,
+    concurrency_limit: Optional[int] = DEFAULT_CONCURRENCY_LIMIT,
+    _auth: bool = Depends(require_api_key)
+):
+    """
+    Clears live cache, captures fresh session tokens, scrapes filtered GMVN properties with concurrency & pacing limits, and updates in-memory feed.
+    """
+    global CACHED_DATA, LIVE_SCRAPE_CACHE, LAST_SYNC_FAILED_TRH_IDS, LAST_SYNC_PARAMS
+    if not checkin or not checkout:
+        _def_cin, _def_cout = default_checkin_checkout()
+        checkin = checkin or _def_cin
+        checkout = checkout or _def_cout
+    dbg(f"=== /api/live-sync called === district={district!r}, city_search={city_search!r}, "
+        f"checkin={checkin}, checkout={checkout}, inter_delay_ms={inter_delay_ms}, concurrency={concurrency_limit}")
+
+    LIVE_SCRAPE_CACHE.clear()
+    _save_live_cache_to_disk()
+
+    # Pre-flight: Capture live session cookies
+    await capture_session_cookies()
+
+    props = CACHED_DATA.get("properties", [])
+    if district and district.lower() != "all":
+        props = [p for p in props if p["district"].lower() == district.lower()]
+    if city_search:
+        s = city_search.lower().strip()
+        props = [p for p in props if s in p["name"].lower() or s in p["city"].lower() or s in p["district"].lower()]
+
+    dbg(f"live_sync will scrape {len(props)} properties with concurrency={concurrency_limit} and delay={inter_delay_ms}ms")
+
+    scraped_count, failed_count, failed_trh_ids, per_property_log = await _run_live_sync_for_properties(
+        props, checkin, checkout, inter_delay_ms, retries, concurrency_limit
+    )
+
+    LAST_SYNC_FAILED_TRH_IDS = failed_trh_ids
+    LAST_SYNC_PARAMS = {
+        "district": district, "city_search": city_search, "checkin": checkin, "checkout": checkout,
+        "inter_delay_ms": inter_delay_ms, "retries": retries, "concurrency_limit": concurrency_limit
+    }
 
     dbg(f"=== live-sync summary: {scraped_count} succeeded, {failed_count} failed (out of {len(props)}) ===")
 
@@ -537,11 +728,64 @@ async def live_sync(
         "success": True,
         "scraped_properties_count": scraped_count,
         "failed_properties_count": failed_count,
+        "failed_trh_ids": failed_trh_ids,
         "checkin": checkin,
         "checkout": checkout,
         "cookies_captured": len(ACTIVE_SESSION_COOKIES),
         "inter_delay_ms": inter_delay_ms,
         "concurrency_limit": concurrency_limit,
+        "_debug_per_property": per_property_log
+    }
+
+
+@app.post("/api/live-sync/retry-failed")
+async def live_sync_retry_failed(_auth: bool = Depends(require_api_key)):
+    """
+    Re-scrapes only the properties that failed on the last /api/live-sync run,
+    reusing the same checkin/checkout/pacing parameters — instead of forcing a
+    full re-scrape of all properties (including ones that already succeeded)
+    just to pick up the handful that timed out.
+    """
+    global LAST_SYNC_FAILED_TRH_IDS, LAST_SYNC_PARAMS
+    if not LAST_SYNC_FAILED_TRH_IDS:
+        return {
+            "success": True,
+            "message": "No failed properties recorded from the last /api/live-sync run — nothing to retry.",
+            "scraped_properties_count": 0,
+            "failed_properties_count": 0
+        }
+    if not LAST_SYNC_PARAMS:
+        raise HTTPException(status_code=400, detail="No prior /api/live-sync run found in this server session.")
+
+    checkin = LAST_SYNC_PARAMS.get("checkin")
+    checkout = LAST_SYNC_PARAMS.get("checkout")
+    inter_delay_ms = LAST_SYNC_PARAMS.get("inter_delay_ms")
+    retries = LAST_SYNC_PARAMS.get("retries")
+    concurrency_limit = LAST_SYNC_PARAMS.get("concurrency_limit")
+
+    all_props = CACHED_DATA.get("properties", [])
+    retry_props = [p for p in all_props if p.get("trh_id") in LAST_SYNC_FAILED_TRH_IDS]
+
+    dbg(f"=== /api/live-sync/retry-failed called === retrying {len(retry_props)} properties: {LAST_SYNC_FAILED_TRH_IDS}")
+
+    await capture_session_cookies()
+
+    scraped_count, failed_count, failed_trh_ids, per_property_log = await _run_live_sync_for_properties(
+        retry_props, checkin, checkout, inter_delay_ms, retries, concurrency_limit
+    )
+
+    LAST_SYNC_FAILED_TRH_IDS = failed_trh_ids
+
+    dbg(f"=== retry-failed summary: {scraped_count} succeeded, {failed_count} still failed (out of {len(retry_props)}) ===")
+
+    return {
+        "success": True,
+        "retried_count": len(retry_props),
+        "scraped_properties_count": scraped_count,
+        "failed_properties_count": failed_count,
+        "failed_trh_ids": failed_trh_ids,
+        "checkin": checkin,
+        "checkout": checkout,
         "_debug_per_property": per_property_log
     }
 
@@ -693,30 +937,46 @@ async def debug_status():
     property, whether the CDP-controlled Chrome bridge is even reachable —
     the single biggest reason live scraping silently falls back.
     """
-    cdp_reachable = False
-    cdp_error = None
+    cdp_reachable = _cdp_is_reachable()
+    cdp_error = None if cdp_reachable else "CDP endpoint not reachable at 127.0.0.1:9222"
     tab_count = 0
-    try:
-        req = urllib.request.Request("http://127.0.0.1:9222/json", headers={"User-Agent": "Mozilla/5.0"})
-        with urllib.request.urlopen(req, timeout=1.5) as r:
-            tabs = json.loads(r.read())
-            tab_count = len(tabs)
-            cdp_reachable = True
-    except Exception as e:
-        cdp_error = f"{type(e).__name__}: {e}"
+    if cdp_reachable:
+        try:
+            req = urllib.request.Request("http://127.0.0.1:9222/json", headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=1.5) as r:
+                tab_count = len(json.loads(r.read()))
+        except Exception as e:
+            cdp_error = f"{type(e).__name__}: {e}"
+            cdp_reachable = False
+
+    cache_details = []
+    now_ = datetime.datetime.utcnow()
+    for k, v in LIVE_SCRAPE_CACHE.items():
+        age = _cache_entry_age_seconds(v)
+        cache_details.append({
+            "key": k,
+            "age_seconds": round(age, 1) if age != float("inf") else None,
+            "expired": age > LIVE_CACHE_TTL_SECONDS,
+            "scraped_at": v.get("scraped_at")
+        })
 
     status = {
         "debug_enabled": DEBUG_ENABLED,
         "cdp_bridge_reachable": cdp_reachable,
         "cdp_open_tab_count": tab_count,
         "cdp_error": cdp_error,
+        "chrome_auto_relaunch_available": _find_chrome_binary() is not None,
+        "chrome_binary_detected": _find_chrome_binary(),
         "live_scrape_cache_size": len(LIVE_SCRAPE_CACHE),
-        "live_scrape_cache_keys": list(LIVE_SCRAPE_CACHE.keys()),
-        "note": "If cdp_bridge_reachable is false, EVERY request will use FALLBACK_STATIC data "
-                "regardless of city_search/property-count filters, because scrape_gmvn_live_room_tariff() "
-                "cannot even reach a controllable Chrome tab."
+        "live_scrape_cache_ttl_seconds": LIVE_CACHE_TTL_SECONDS,
+        "live_scrape_cache_entries": cache_details,
+        "last_sync_failed_trh_ids": LAST_SYNC_FAILED_TRH_IDS,
+        "api_key_protection_enabled": bool(API_KEY),
+        "note": "If cdp_bridge_reachable is false, live-sync/scrape calls will first try to auto-relaunch Chrome "
+                "(via GMVN_CHROME_PATH or a common install path) before falling back to FALLBACK_STATIC. "
+                "Cache entries older than live_scrape_cache_ttl_seconds are treated as expired and re-scraped."
     }
-    dbg(f"/api/debug/status -> {status}")
+    dbg(f"/api/debug/status -> cdp_reachable={cdp_reachable}, cache_size={len(LIVE_SCRAPE_CACHE)}")
     return status
 
 

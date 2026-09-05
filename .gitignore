@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+*.class
+*.log
+.env
+.venv/
+venv/
+live_scrape_cache.json
